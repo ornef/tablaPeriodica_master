@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablaPeriodica", "TablaPeriodica\TablaPeriodica.csproj", "{40695E61-7C39-477C-9105-62D5E7258EE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablaPeriodica.DLL", "TablaPeriodica.DLL\TablaPeriodica.DLL.csproj", "{E37B24E8-0789-4CD8-A9BC-ACF75D3F898F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablaPeriodica.DAL", "TablaPeriodica.DAL\TablaPeriodica.DAL.csproj", "{1774592A-1090-46A6-B64A-C511F0D7AC77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablaPeriodica.Biz", "TablaPeriodica.Biz\TablaPeriodica.Biz.csproj", "{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40695E61-7C39-477C-9105-62D5E7258EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40695E61-7C39-477C-9105-62D5E7258EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40695E61-7C39-477C-9105-62D5E7258EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40695E61-7C39-477C-9105-62D5E7258EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E37B24E8-0789-4CD8-A9BC-ACF75D3F898F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E37B24E8-0789-4CD8-A9BC-ACF75D3F898F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E37B24E8-0789-4CD8-A9BC-ACF75D3F898F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E37B24E8-0789-4CD8-A9BC-ACF75D3F898F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1774592A-1090-46A6-B64A-C511F0D7AC77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1774592A-1090-46A6-B64A-C511F0D7AC77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1774592A-1090-46A6-B64A-C511F0D7AC77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1774592A-1090-46A6-B64A-C511F0D7AC77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
