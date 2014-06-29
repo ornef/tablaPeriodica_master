@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessException.cs" />
+    <Compile Include="ElementoBiz.cs" />
     <Compile Include="LoginBiz.cs" />
+    <Compile Include="PreguntaBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

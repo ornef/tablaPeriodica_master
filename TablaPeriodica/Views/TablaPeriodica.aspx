@@ -14,20 +14,82 @@
 </head>
 <body>
     <header>
-        <a id="logueo" title="Login" href="#login_form">Login</a>
+        <a id="logueo" title="Login" href="#loginDiv">Login</a><br />
+        <a id="historial" title="Historial" href="Historial.aspx">Historial</a>
         <h1>2 TABLA PERIODICA DE LOS ELEMENTOS 3</h1>
     </header>
-    <div style="display:none">
         <form id="login_form" runat="server">
-            <p id="login_error">Please, enter data</p>
-            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
-            <asp:Label ID="lblUsuario" runat="server">Usuario</asp:Label>
-            <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox> 
-             <asp:Label ID="lblContrasenia" runat="server">Contraseña</asp:Label>
-            <asp:TextBox ID="txtContrasenia" runat="server"></asp:TextBox>
-            <asp:Button id="btnLogin" Text="Submit" runat="server" OnClick="btnLogin_Click" />  
-        </form>
-    </div>
+        <div style="display:none">
+            <div id="loginDiv">
+                <p id="login_error">Please, enter data</p>
+                <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                <asp:Label ID="lblUsuario" runat="server">Usuario</asp:Label>
+                <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox> 
+                <asp:Label ID="lblContrasenia" runat="server">Contraseña</asp:Label>
+                <asp:TextBox ID="txtContrasenia" runat="server"></asp:TextBox>
+                <asp:Button id="btnLogin" Text="Submit" runat="server" OnClick="btnLogin_Click" />  
+            </div>
+        </div>
+    
+        <div style="display:none">
+            <div id="inlineElemento" onclick="inlineElemento_Click">
+                <asp:Table ID="TableElement" runat="server">
+                    <asp:TableRow runat="server" ID="ElementoTabla" >
+                        <asp:TableCell runat="server">S&iacute;mbolo:</asp:TableCell>
+                        <asp:TableCell ID="TableCell1" runat="server"><asp:TextBox ID="txtSimbolo" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow ID="TableRow2" runat="server">
+                        <asp:TableCell ID="TableCell17" runat="server">Nombre:</asp:TableCell>
+                        <asp:TableCell ID="TableCell18" runat="server"><asp:TextBox ID="txtNombre" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow ID="TableRow1" runat="server">
+                        <asp:TableCell ID="TableCell2" runat="server">N&uacute;mero at&oacute;mico:</asp:TableCell>
+                        <asp:TableCell ID="TableCell3" runat="server"><asp:TextBox ID="txtNroAtomico" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell ID="TableCell4" runat="server">Valencia:</asp:TableCell>
+                        <asp:TableCell ID="TableCell5" runat="server"><asp:TextBox ID="txtValencia" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell ID="TableCell6" runat="server">Electronegatividad:</asp:TableCell>
+                        <asp:TableCell ID="TableCell7" runat="server"><asp:TextBox ID="txtElectronegatividad" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                   <asp:TableRow runat="server">
+                        <asp:TableCell ID="TableCell8" runat="server">Configuraci&oacute;n electr&oacute;nica:</asp:TableCell>
+                        <asp:TableCell ID="TableCell9" runat="server"><asp:TextBox ID="txtConfElec" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell ID="TableCell10" runat="server">Masa at&oacute;mica (g/m):</asp:TableCell>
+                        <asp:TableCell ID="TableCell11" runat="server"><asp:TextBox ID="txtMasa" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell ID="TableCell12" runat="server">Detalles:</asp:TableCell>
+                        <asp:TableCell ID="TableCell13" runat="server"><asp:TextBox ID="txtDetalles" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server">
+                        <asp:TableCell ID="TableCell14" runat="server" > 
+                            <asp:Button id="btnPreguntar" Text="Preguntar" runat="server" OnClick="btnPreguntar_Click" />
+                        </asp:TableCell>
+                        <asp:TableCell ID="TableCell15" runat="server">
+                            <asp:Button id="btnEditar" Text="Editar" runat="server" OnClick="btnEditar_Click" />
+                        </asp:TableCell>
+                        <asp:TableCell ID="TableCell16" runat="server">
+                            <asp:Button id="btnGuardar" Text="Guardar" runat="server" OnClick="btnGuardar_Click" />
+                        </asp:TableCell>
+                    </asp:TableRow>
+                 </asp:Table>
+            </div>
+        </div>
+
+        
+            <div id="hacerPregunta">
+                <asp:TextBox ID="txtMessage" runat="server" Visible="false" OnTextChanged="btnEnviar_Click"></asp:TextBox>
+                <asp:Button id="btnEnviar" Text="Enviar" runat="server" OnClick="btnPreguntar_Click" Visible="false"/>  
+                <asp:HiddenField ID="hiddenDisplayName" runat="server" OnValueChanged="btnPreguntar_Click" />
+                <asp:HiddenField ID="hiddenElemento" runat="server" OnValueChanged="btnPreguntar_Click" />
+            </div>
+        
+    </form>
     <div class="container-fluid">
         <!-- columna grupos -->
 	    <div class="row">
@@ -42,7 +104,7 @@
                 </div>
                 <div class="col-sm-3 sin-espacio elemento-vacio-3">
                     <div class="referencias-100">
-					    <button type="button" class="btn btn-default btn-xm no-metal" id="todos" value="Reload Page" onclick="window.location.reload()"></button><span>Ver Todos</span>
+					    <button type="button" class="btn btn-default btn-xm" id="todos" value="Reload Page" onclick="window.location.reload()"></button><span>Ver Todos</span>
 				    </div>
                 </div>
              </div>
@@ -78,6 +140,12 @@
 					<div class="referencias">
 						<button type="button" class="btn btn-default btn-xm metal-transicion" id="btnTransicion" onclick="disableDivs('transicion')"></button><span>Metal de Transici&oacute;n</span>
 					</div>
+                    <div class="referencias">
+						<button type="button" class="btn btn-default btn-xm otros-metales" id="btnOtrosMetales" onclick="disableDivs('otrosMetales')"></button><span>Otros Metales</span>
+					</div>
+                    <div class="referencias">
+						<button type="button" class="btn btn-default btn-xm halogeno" id="btnHalogeno" onclick="disableDivs('halogeno')"></button><span>Hal&oacute;geno</span>
+					</div>
 				</div>
             </div>
             <div class="col-sm-10 sin-espacio">
@@ -112,14 +180,9 @@
                 </div>
 				<div class="col-sm-1 elemento-vacio"></div>
                 <div class="col-sm-1 elemento-vacio-6">
-					<div class="referencias">
-						<button type="button" class="btn btn-default btn-xm otros-metales" id="btnOtrosMetales" onclick="disableDivs('otrosMetales')"></button><span>Otros Metales</span>
-					</div>
+					
 					<div class="referencias">
 						<button type="button" class="btn btn-default btn-xm metaloide" id="btnMetaloide" onclick="disableDivs('metaloide')"></button><span>Metaloide</span>
-					</div>
-					<div class="referencias">
-						<button type="button" class="btn btn-default btn-xm halogeno" id="btnHalogeno" onclick="disableDivs('halogeno')"></button><span>Hal&oacute;geno</span>
 					</div>
 					<div class="referencias">
 						<button type="button" class="btn btn-default btn-xm gas-noble" id="btnGasNoble" onclick="disableDivs('gasNoble')"></button><span>Gas Noble</span>
@@ -792,57 +855,7 @@
             </div>
         </div>
     </div>
-    <div style="display:none">
-        <div id="inlineElemento">
-            <table>
-                <tr>
-                    <th>S&iacute;mbolo:</th>
-                    <td>DB simbolo</td>
-                </tr>
-                <tr>
-                    <th>N&uacute;mero at&oacute;mico:</th>
-                    <td>DB numero atomico</td>
-                </tr>
-                <tr>
-                    <th>Valencia:</th>
-                    <td>DB valencia</td>
-                </tr>
-                <tr>
-                    <th>Electronegatividad:</th>
-                    <td>DB electronegatividad</td>
-                </tr>
-                <tr>
-                    <th>Configuraci&oacute;n electr&oacute;nica:</th>
-                    <td>DB configuracion electronica</td>
-                </tr>
-                <tr>
-                    <th>Masa at&oacute;mica (g/m):</th>
-                    <td>DB masa atomica</td>
-                </tr>
-                <tr>
-                    <th>Detalles:</th>
-                    <td>DB detalles</td>
-                </tr>
-                <tr>
-                    <td>
-                        <form id="preguntar" method="post" action="">
-                            <p><input type="submit" value="Hacer Pregunta" /></p>
-                        </form>
-                    </td>
-                    <td>
-                        <form id="editar" method="post" action="">
-                            <p><input type="submit" value="Editar" /></p>
-                        </form>
-                    </td>
-                    <td>
-                        <form id="guardar" method="post" action="">
-                            <p><input type="submit" value="Guardar" /></p>
-                        </form>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+
     <!-- JS vinculados -->
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/jquery-1.10.2.js"></script>

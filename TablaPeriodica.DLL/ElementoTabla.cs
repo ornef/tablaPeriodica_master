@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TablaPeriodica.DLL
 {
-    class ElementoTabla
+    public class ElementoTabla
     {
         private String simbolo;
         private int nroAtomico;
