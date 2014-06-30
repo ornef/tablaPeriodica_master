@@ -362,6 +362,7 @@ background: rgba(44,119,138,1);
     padding-bottom: 1.5%;
 
 }
+
 body{
   background: url(../Images/background-image.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -379,22 +380,22 @@ ul {
 }
 
 /* unvisited link */
-a:link {
+.menu:link {
     color: white;
 }
 
 /* visited link */
-a:visited {
+.menu:visited {
     color: white;
 }
 
 /* mouse over link */
-a:hover {
+.menu:hover {
     color: orange;
 }
 
 /* selected link */
-a:active {
+.menu a:active {
     color: #0000FF;
 }
 

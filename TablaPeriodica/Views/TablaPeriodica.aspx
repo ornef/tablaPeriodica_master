@@ -14,8 +14,8 @@
 </head>
 <body>
     <header>
-        <div id="menu"><a id="logueo" title="Login" href="login.aspx">Login</a>&nbsp;
-        <a id="historial" title="Historial" href="Historial.aspx">Historial</a></div>
+        <div id="menu"><a class="menu" id="logueo" title="Login" href="login.aspx">Login</a>&nbsp;
+        <a class="menu" id="historial" title="Historial" href="Historial.aspx">Historial</a></div>
         <div id="titulo">2 TABLA PERIODICA DE LOS ELEMENTOS 3</div>
         <div id="clear"></div>
     </header>
