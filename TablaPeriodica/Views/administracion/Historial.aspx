@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="../css/tablaPeriodica.css" media="screen"/>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="../../css/tablaPeriodica.css" rel="stylesheet" />
 </head>
 <body>
     <header>
-         <div id="menu"><a class="menu" id="volver" title="volver" href="TablaPeriodica.aspx">Volver a la Tabla</a></div>
+         <div id="menu"><a class="menu" id="volver" title="volver" href="../publico/TablaPeriodica.aspx">Volver a la Tabla</a></div>
         <div id="titulo">2 Listado de Preguntas 3</div>
         <div id="clear"></div>
     </header>

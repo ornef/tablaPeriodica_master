@@ -24,26 +24,6 @@ namespace TablaPeriodica.Views
 
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (loginBiz.validarUsuario(txtUsuario.Text, txtContrasenia.Text))
-                {
-                    Session.Add("logueado", true);
-                }
-                else
-                {
-                    lblMensaje.Text = "El usuario o contraseña ingresado es incorrecto.";
-                    Session.Add("logueado", true);
-                }
-            }
-            catch (BusinessException exc)
-            {
-                lblMensaje.Text = exc.Message;
-            }
-        }
-
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             txtDetalles.Enabled = true;

@@ -209,6 +209,9 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\login\bootstrap.min.css" />
+    <Content Include="Scripts\login\bootstrap.min.js" />
+    <Content Include="Scripts\login\jquery.min.js" />
     <Content Include="Scripts\responsive.js" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -261,11 +264,13 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Views\Historial.aspx" />
-    <Content Include="Views\login.aspx" />
-    <Content Include="Views\TablaPeriodica.aspx" />
+    <Content Include="Views\administracion\Historial.aspx" />
+    <Content Include="Views\publico\login.aspx" />
+    <Content Include="Views\publico\TablaPeriodica.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
+    <Content Include="Views\administracion\Web.config" />
+    <Content Include="Views\publico\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\_references.js" />
@@ -278,17 +283,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Historial.aspx.cs">
+    <Compile Include="Views\administracion\Historial.aspx.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\administracion\Historial.aspx.designer.cs">
       <DependentUpon>Historial.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Historial.aspx.designer.cs">
-      <DependentUpon>Historial.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\login.aspx.cs">
+    <Compile Include="Views\publico\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\login.aspx.designer.cs">
+    <Compile Include="Views\publico\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Shared\Site.Master.cs">
@@ -298,11 +304,11 @@
     <Compile Include="Views\Shared\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\TablaPeriodica.aspx.cs">
+    <Compile Include="Views\publico\TablaPeriodica.aspx.cs">
       <DependentUpon>TablaPeriodica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\TablaPeriodica.aspx.designer.cs">
+    <Compile Include="Views\publico\TablaPeriodica.aspx.designer.cs">
       <DependentUpon>TablaPeriodica.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

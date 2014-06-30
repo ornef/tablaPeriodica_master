@@ -15,18 +15,18 @@ namespace TablaPeriodica.Biz
         private UsuarioDAL usuarioDAL = new UsuarioDAL();
         private static String LOGIN_EXMSG = "No se pudieron obtener los datos, por favor contáctese con soporte";
 
-        public Boolean validarUsuario (String mail, String contrasenia) {
+        public Usuario validarUsuario (String mail, String contrasenia) {
             try{
                 Usuario usuario = usuarioDAL.getUsuario(mail);
-                if (usuario != null) {
-                    return contrasenia.Equals(usuario.Contrasenia);
+                if (usuario != null && contrasenia.Equals(usuario.Contrasenia)){
+                    return usuario;
                 }
-                return false;
             } catch (DbException dbEx) {
                 throw new BusinessException(LOGIN_EXMSG, dbEx);
             } catch (Exception genericEx) {
                 throw new BusinessException(LOGIN_EXMSG, genericEx);
             }
-       }
+            return null;
+        }
     }
-}
+ }

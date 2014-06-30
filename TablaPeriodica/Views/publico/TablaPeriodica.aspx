@@ -8,30 +8,18 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
     <title>Tabla Peri&oacute;dica</title>
     <!-- Estilos CSS vinculados -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="../css/tablaPeriodica.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="../scripts/jquery.fancybox.css"/>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../../css/tablaPeriodica.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../../scripts/jquery.fancybox.css"/>
 </head>
 <body>
     <header>
         <div id="menu"><a class="menu" id="logueo" title="Login" href="login.aspx">Login</a>&nbsp;
-        <a class="menu" id="historial" title="Historial" href="Historial.aspx">Historial</a></div>
+        <a class="menu" id="historial" title="Historial" href="../administracion/Historial.aspx">Historial</a></div>
         <div id="titulo">2 TABLA PERIODICA DE LOS ELEMENTOS 3</div>
         <div id="clear"></div>
     </header>
-        <form id="login_form" runat="server">
-        <div style="display:none">
-            <div id="loginDiv">
-                <p id="login_error">Please, enter data</p>
-                <asp:Label ID="lblMensaje" runat="server"></asp:Label>
-                <asp:Label ID="lblUsuario" runat="server">Usuario</asp:Label>
-                <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox> 
-                <asp:Label ID="lblContrasenia" runat="server">Contraseña</asp:Label>
-                <asp:TextBox ID="txtContrasenia" runat="server"></asp:TextBox>
-                <asp:Button id="btnLogin" Text="Submit" runat="server" OnClick="btnLogin_Click" />  
-            </div>
-        </div>
-    
+        <form id="form" runat="server">  
         <div style="display:none">
             <div id="inlineElemento" onclick="inlineElemento_Click">
                 <asp:Table ID="TableElement" runat="server">
@@ -858,47 +846,16 @@
     </div>
 
     <!-- JS vinculados -->
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
     
     <!--<script type="text/javascript" language="javascript" src="scripts/jquery-2.1.1.js"></script> -->
-    <script type="text/javascript" src="../Scripts/jquery.fancybox.js"></script>
-    <script src="../Scripts/tablaPeriodica.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.fancybox.js"></script>
+    <script src="../../Scripts/tablaPeriodica.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.fancybox').fancybox();
         })
-
-        $("#logueo").fancybox({
-            'scrolling': 'no',
-            'titleShow': false,
-            'onClosed': function () {
-                $("#login_error").hide();
-            }
-        });
-
-        $("#login_form").bind("submit", function () {
-
-            if ($("#txtUsuario").val().length < 1 || $("#txtContrasenia").val().length < 1) {
-                $("#login_error").show();
-                $.fancybox.resize();
-                return false;
-            }
-
-            $.fancybox.showActivity();
-
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: "/data/login.php",
-                data: $(this).serializeArray(),
-                success: function (data) {
-                    $.fancybox(data);
-                }
-            });
-
-            return false;
-        });
 		
     </script>
 </body>
