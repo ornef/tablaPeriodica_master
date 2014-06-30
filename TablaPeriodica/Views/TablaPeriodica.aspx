@@ -14,9 +14,10 @@
 </head>
 <body>
     <header>
-        <a id="logueo" title="Login" href="#loginDiv">Login</a><br />
-        <a id="historial" title="Historial" href="Historial.aspx">Historial</a>
-        <h1>2 TABLA PERIODICA DE LOS ELEMENTOS 3</h1>
+        <div id="menu"><a id="logueo" title="Login" href="login.aspx">Login</a>&nbsp;
+        <a id="historial" title="Historial" href="Historial.aspx">Historial</a></div>
+        <div id="titulo">2 TABLA PERIODICA DE LOS ELEMENTOS 3</div>
+        <div id="clear"></div>
     </header>
         <form id="login_form" runat="server">
         <div style="display:none">
@@ -605,7 +606,7 @@
                 <div class="col-sm-1 elemento metal-transicion fancybox" id="inlineRutherfordio" title="Rutherfordio" href="#inlineElemento">
                     <div class ="nro-atomico">104</div>
                     <div class ="simbolo">Rf</div>
-                    <div class ="nombre-elemento">Rutherfordio</div>
+                    <div class ="nombre-elemento" style="overflow-wrap:normal">Rutherfordio</div>
                 </div>
                 <div class="col-sm-1 elemento metal-transicion fancybox" id="inlineDubnio" title="Dubnio" href="#inlineElemento">
                     <div class ="nro-atomico">105</div>
@@ -686,9 +687,9 @@
         <!--espacio-->
         </div>
         <!-- fila 1 Lantanidos -->
-        <div class="row">
+        <div class="row lantanidos">
             <div class="col-sm-10 sin-espacio">
-                <div class="col-sm-3 elemento-vacio-3"><div class="tipo-elemento"><br>*Lant&aacute;nidos</div></div>
+                <div class="col-sm-3 elemento-vacio-3"><div class="tipo-elemento"><br><span class="ref">Lant&aacute;nidos</span></div></div>
                 <div class="col-sm-1 elemento tierra-rara fancybox" id="inlineLantano" title="Lantano" href="#inlineElemento">
                     <div class ="nro-atomico">57</div>
                     <div class ="simbolo">La</div>
@@ -773,7 +774,7 @@
         <!-- fila 1 Actinidos -->
         <div class="row">
             <div class="col-sm-10 sin-espacio">
-                <div class="col-sm-3 elemento-vacio-3"><div class="tipo-elemento"><br>*Act&iacute;nidos</div></div>
+                <div class="col-sm-3 elemento-vacio-3"><div class="tipo-elemento"><br><span class="ref">Act&iacute;nidos</span></div></div>
                 <div class="col-sm-1 elemento tierra-rara fancybox" id="inlineActinio" title="Actinio" href="#inlineElemento">
                     <div class ="nro-atomico">89</div>
                     <div class ="simbolo">Ac</div>

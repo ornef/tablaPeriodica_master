@@ -13,9 +13,24 @@
    src: url("fuentes/QueenLuna.ttf") format('truetype');
 }
 	
-h1 {
+#titulo {
+    float: right;
+    text-align: left;
 	font-family: fontTitle;
-	text-align: center;
+    font-size:x-large;
+    width: 70%;
+}
+#menu
+{
+    font-size: small;
+    font-family: "fontSimbolos";
+    text-align: left;
+    float: left;
+    width: 30%;
+}
+#clear
+{
+    clear: both;
 }
 .elemento {
 	border:1px ridge; 
@@ -333,8 +348,26 @@ h1 {
 	opacity:0.5;
 }
 
+header
+{
+background: rgba(44,119,138,1);
+	background: -moz-linear-gradient(45deg, rgba(44,119,138,1) 0%, rgba(117,189,209,1) 41%, rgba(15,64,117,1) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(44,119,138,1)), color-stop(41%, rgba(117,189,209,1)), color-stop(100%, rgba(15,64,117,1)));
+	background: -webkit-linear-gradient(45deg, rgba(44,119,138,1) 0%, rgba(117,189,209,1) 41%, rgba(15,64,117,1) 100%);
+	background: -o-linear-gradient(45deg, rgba(44,119,138,1) 0%, rgba(117,189,209,1) 41%, rgba(15,64,117,1) 100%);
+	background: -ms-linear-gradient(45deg, rgba(44,119,138,1) 0%, rgba(117,189,209,1) 41%, rgba(15,64,117,1) 100%);
+	background: linear-gradient(45deg, rgba(44,119,138,1) 0%, rgba(117,189,209,1) 41%, rgba(15,64,117,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c778a', endColorstr='#0f4075', GradientType=1 );
+    border: 2px solid black;
+    padding-bottom: 1.5%;
+
+}
 body{
-	background-color: #FFFFCC;
+  background: url(../Images/background-image.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 h2 {
@@ -343,4 +376,34 @@ h2 {
 
 ul {
 	background-color: white;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: orange;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+.ref
+{
+    color:coral;
+}
+
+.lantanidos
+{
+    padding-top:1%;
 }

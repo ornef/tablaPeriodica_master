@@ -10,8 +10,9 @@
 </head>
 <body>
     <header>
-        <a id="volver" title="volver" href="TablaPeriodica.aspx">Volver a la Tabla</a>
-        <h1>2 Listado de Preguntas 3</h1>
+         <div id="menu"><a id="volver" title="volver" href="TablaPeriodica.aspx">Volver a la Tabla</a></div>
+        <div id="titulo">2 Listado de Preguntas 3</div>
+        <div id="clear"></div>
     </header>
     <div class="container-fluid">
     <form id="form1" runat="server">
