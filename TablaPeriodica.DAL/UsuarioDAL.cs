@@ -16,7 +16,7 @@ namespace TablaPeriodica.DAL
     {
         public DLL.Usuario getUsuario(string mail)
         {
-            Usuario usuario = new Usuario();
+            Usuario usuario = null;
             String query = "SELECT NOMBRE, APELLIDO, TIPO_USUARIO, MAIL, CONTRASENIA FROM USUARIOS where mail =@mailParam ";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
                 con.ConnectionString = Commons.getConnectionString();
@@ -33,6 +33,7 @@ namespace TablaPeriodica.DAL
                         con.Open();
                         IDataReader reader = cmd.ExecuteReader();
                             if(reader.Read()){
+                                usuario = new Usuario();
                                 usuario.Mail = reader.GetString(reader.GetOrdinal("MAIL"));
                                 usuario.Nombre = reader.GetString(reader.GetOrdinal("NOMBRE"));
                                 usuario.Apellido = reader.GetString(reader.GetOrdinal("APELLIDO"));

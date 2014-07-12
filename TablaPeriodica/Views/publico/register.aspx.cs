@@ -25,6 +25,7 @@ namespace TablaPeriodica.Views.publico
                 usuario.Apellido = txtApellido.Text;
                 usuario.Nombre = txtNombre.Text;
                 usuario.Mail = txtEmail.Text;
+                usuario.Contrasenia = txtContrasenia.Text;
 
                 if (loginBiz.existeUsuario(usuario.Mail))
                 {
