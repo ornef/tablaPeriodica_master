@@ -28,6 +28,7 @@ namespace TablaPeriodica.Views
                         menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Historial Alumno"));
                         menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
                         Session.Add("usuario", usuario);
+                        Session.Add("menu", menu);
                         Response.Redirect("~/Views/publico/TablaPeriodica.aspx");
                 }
                 else if (usuario != null && usuario.TipoUsuario.Equals("PRO"))
@@ -35,13 +36,15 @@ namespace TablaPeriodica.Views
                         menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Historial"));
                         menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
                         Session.Add("usuario", usuario);
+                        Session.Add("menu", menu);
                         Response.Redirect("~/Views/publico/TablaPeriodica.aspx");
                 }
                 else {
                     lblMsgRegistrarme.Text = "Nombre de usuario o contraseña erroneo.";
                     menu.Add(new MenuItemCustom("~/Views/publico/login.aspx", "Login"));
+                    Session.Add("menu", menu);
                 }
-                Session.Add("menu", menu);
+                
                 
                 
             } catch (BusinessException ex) {
