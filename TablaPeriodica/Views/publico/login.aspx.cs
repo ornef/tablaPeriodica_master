@@ -24,20 +24,22 @@ namespace TablaPeriodica.Views
             try {
                 Usuario usuario = loginBiz.validarUsuario(username.Text, password.Text);
                 if (usuario != null && usuario.TipoUsuario.Equals("ALU"))
-                    {
-                        menu.Add(new MenuItemCustom("~/Views/publico/login.aspx", "Login"));
-                        menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Alumno"));
-
-                    }
-                    else if (usuario != null && usuario.TipoUsuario.Equals("PRO"))
-                    {
-                        menu.Add(new MenuItemCustom("~/Views/publico/login.aspx", "Login"));
+                {
+                        menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Historial Alumno"));
+                        menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
+                        Session.Add("usuario", usuario);
+                }
+                else if (usuario != null && usuario.TipoUsuario.Equals("PRO"))
+                {
                         menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Historial"));
-                    }
-                    else {
+                        menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
+                        Session.Add("usuario", usuario);
+                }
+                else {
                         menu.Add(new MenuItemCustom("~/Views/publico/login.aspx", "Login"));
-                    }
+                }
                 Session.Add("menu", menu);
+                
                 Response.Redirect("~/Views/publico/TablaPeriodica.aspx");
             } catch (BusinessException ex) { 
                 //TODO

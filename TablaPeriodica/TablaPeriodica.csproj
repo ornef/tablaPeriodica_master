@@ -266,6 +266,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Views\administracion\Historial.aspx" />
     <Content Include="Views\publico\login.aspx" />
+    <Content Include="Views\publico\logOut.aspx" />
     <Content Include="Views\publico\TablaPeriodica.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -295,6 +296,13 @@
     </Compile>
     <Compile Include="Views\publico\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\publico\logOut.aspx.cs">
+      <DependentUpon>logOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\publico\logOut.aspx.designer.cs">
+      <DependentUpon>logOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\publico\TablaPeriodica.aspx.cs">
       <DependentUpon>TablaPeriodica.aspx</DependentUpon>

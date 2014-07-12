@@ -7,7 +7,7 @@
          <div id="menu">
 		 <asp:Menu ID="Menu1" runat="server" Orientation="Vertical">
          </asp:Menu>
-		 <a class="menu" id="volver" title="volver" href="../publico/TablaPeriodica.aspx">Volver a la Tabla</></div>
+		 <a class="menu" id="volver" title="volver" href="../publico/TablaPeriodica.aspx">Volver a la Tabla</a></div>
         <div id="titulo">2 Listado de Preguntas 3</div>
         <div id="clear"></div>
     </header>

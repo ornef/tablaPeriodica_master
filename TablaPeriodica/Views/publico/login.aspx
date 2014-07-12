@@ -43,7 +43,7 @@
 								<!-- Password-->
 								<label class="control-label" for="password">Contrase&ntilde;a</label>
 								<div class="controls">
-									 <asp:TextBox ID="password" runat="server" CssClass="input-xlarge"></asp:TextBox>
+									 <asp:TextBox ID="password" runat="server" CssClass="input-xlarge" TextMode="Password"></asp:TextBox>
 								</div>
 							</div>
 							<div class="control-group">
