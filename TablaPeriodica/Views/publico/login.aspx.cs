@@ -12,7 +12,7 @@ namespace TablaPeriodica.Views
 {
     public partial class login : System.Web.UI.Page
     {
-        LoginBiz loginBiz = new LoginBiz();
+        UsuarioBiz loginBiz = new UsuarioBiz();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -28,21 +28,24 @@ namespace TablaPeriodica.Views
                         menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Historial Alumno"));
                         menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
                         Session.Add("usuario", usuario);
+                        Response.Redirect("~/Views/publico/TablaPeriodica.aspx");
                 }
                 else if (usuario != null && usuario.TipoUsuario.Equals("PRO"))
                 {
                         menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Historial"));
                         menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
                         Session.Add("usuario", usuario);
+                        Response.Redirect("~/Views/publico/TablaPeriodica.aspx");
                 }
                 else {
-                        menu.Add(new MenuItemCustom("~/Views/publico/login.aspx", "Login"));
+                    lblMsgRegistrarme.Text = "Nombre de usuario o contraseña erroneo.";
+                    menu.Add(new MenuItemCustom("~/Views/publico/login.aspx", "Login"));
                 }
                 Session.Add("menu", menu);
                 
-                Response.Redirect("~/Views/publico/TablaPeriodica.aspx");
-            } catch (BusinessException ex) { 
-                //TODO
+                
+            } catch (BusinessException ex) {
+                lblMsgRegistrarme.Text = ex.Message;
             }
         }
 

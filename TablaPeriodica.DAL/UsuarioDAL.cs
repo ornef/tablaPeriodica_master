@@ -48,7 +48,7 @@ namespace TablaPeriodica.DAL
             return usuario;
         }
 
-        public void addUsuario(DLL.Usuario usuario)
+        public void deleteUsuario(String mail)
         {
             throw new NotImplementedException();
         }
@@ -85,6 +85,14 @@ namespace TablaPeriodica.DAL
             param.Value = usuario.Mail;
             paramList.Add(param);
             this.executeNonQuery("delete from usuario where mail =@idUsuario", paramList, CommandType.Text);
+        }
+
+        public void insertUsuario(DLL.Usuario usuario)
+        {
+            String str = "insert into usuarios (nombre, apellido, tipo_usuario, mail, contrasenia) values ('{0}', '{1}', '{2}', '{3}', '{4}')";
+            str = String.Format(str, usuario.Nombre, usuario.Apellido, usuario.TipoUsuario, usuario.Mail, usuario.Contrasenia);
+
+            this.executeNonQuery(str, CommandType.Text);
         }
     }
 }

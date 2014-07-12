@@ -25,18 +25,19 @@
 		<div class="well">
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#login" data-toggle="tab">Registrarme</a></li>
-				<li><a href="#create" data-toggle="tab">Crear una Cuenta </a></li>
 			</ul>
+            <form id="form" runat="server" class="form-horizontal"> 
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane active in" id="login">
-                        <form id="form" runat="server" class="form-horizontal"> 
+                        
 						<fieldset>
 								<legend>Login</legend>
+                             <asp:Label ID="lblMsgRegistrarme" runat="server" CssClass="alert-error"></asp:Label>
 							<div class="control-group">
 								<!-- Username -->
 								<label class="control-label"  for="username">Usuario</label>
 								<div class="controls">
-                                    <asp:TextBox ID="username" runat="server" CssClass="input-xlarge"></asp:TextBox>
+                                    <asp:TextBox ID="username" runat="server" CssClass="input-xlarge" TextMode="Email"></asp:TextBox>
 								</div>
 							</div>			
 							<div class="control-group">
@@ -52,22 +53,10 @@
 									<asp:button ID="btnLogin" runat="server" CssClass="btn btn-success" Text="Login" OnClick="Unnamed1_Click"/>
 								</div>
 							</div>
+						        <asp:HyperLink ID="nuevoUsuario" runat="server" href="register.aspx">Nuevo Usuario?</asp:HyperLink>
 						</fieldset>
-					</form>                
 				</div>
-				<div class="tab-pane fade" id="create">
-					<form id="tab">
-						<label>Nombre</label>
-                        <input type="text" value="" class="input-xlarge"/>
-						<label>Apellido</label>
-						<input type="text" value="" class="input-xlarge"/>
-						<label>Email</label>
-						<input type="text" value="" class="input-xlarge"/>
-						<div>
-							<button class="btn btn-primary">Crear Cuenta</button>
-						</div>
-					</form>
-				</div>
+            </form>
 			</div>
 		</div>
         <script class="cssdeck" src="../../Scripts/login/jquery.min.js"></script>

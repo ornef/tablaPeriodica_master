@@ -95,6 +95,34 @@ namespace TablaPeriodica.DAL
             }
         }
 
+        public void executeNonQuery(String query, CommandType cmdType)
+        {
+            IDbConnection con = Commons.getProviderFactory().CreateConnection();
+            con.ConnectionString = Commons.getConnectionString();
+            IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
+            cmd.CommandType = cmdType;
+            cmd.CommandText = query;
+            try
+            {
+                con.Open();
+                cmd.Transaction = con.BeginTransaction();
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+                cmd.Transaction.Commit();
+                cmd.Dispose();
+                con.Close();
+                con.Dispose();
+            }
+            catch (DbException dbex)
+            {
+                throw;
+            }
+            catch (SystemException ex)
+            {
+                cmd.Transaction.Rollback();
+                throw;
+            }
+        }
 
         public static Byte conversorBit(Boolean valor)
         {

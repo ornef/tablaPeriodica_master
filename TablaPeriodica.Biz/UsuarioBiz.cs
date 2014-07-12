@@ -10,7 +10,7 @@ using System.Data.Common;
 
 namespace TablaPeriodica.Biz
 {
-    public class LoginBiz
+    public class UsuarioBiz
     {
         private UsuarioDAL usuarioDAL = new UsuarioDAL();
         private static String LOGIN_EXMSG = "No se pudieron obtener los datos, por favor contáctese con soporte";
@@ -27,6 +27,17 @@ namespace TablaPeriodica.Biz
                 throw new BusinessException(LOGIN_EXMSG, genericEx);
             }
             return null;
+        }
+
+        public Boolean existeUsuario(String mail) {
+            Usuario usuario = usuarioDAL.getUsuario(mail);
+            return usuario != null;
+        }
+
+        public void altaUsuarioAlumno(Usuario usuario)
+        {
+            usuario.TipoUsuario = "ALU";
+            usuarioDAL.insertUsuario(usuario);
         }
     }
  }

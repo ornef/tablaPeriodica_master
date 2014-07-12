@@ -12,7 +12,7 @@ namespace TablaPeriodica.Views
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private LoginBiz loginBiz = new LoginBiz();
+        private UsuarioBiz loginBiz = new UsuarioBiz();
         private PreguntaBiz pregBiz = new PreguntaBiz();
         private ElementoBiz elemBiz = new ElementoBiz();
 
