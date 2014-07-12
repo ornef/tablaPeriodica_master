@@ -21,8 +21,30 @@ namespace TablaPeriodica.Views
             // Manually register the event-handling method for
             // the Click event of the Button control.
             btnPreguntar.Click += new EventHandler(this.btnPreguntar_Click);
-
+            //si se autentica mostramos mensaje y nombre de usuario
+            if (HttpContext.Current.User.Identity.IsAuthenticated) {
+                Response.Write("Bienvenido : " + User.Identity.Name);
+            }
+            List<MenuItemCustom> menu = (List<MenuItemCustom>)Session["menu"];
+        
+                if (menu == null) {
+                    MenuItem itemLogin = new MenuItem();
+                    itemLogin.Text = "Login";
+                    itemLogin.NavigateUrl = "~/Views/publico/login.aspx";
+                    Menu1.Items.Add(itemLogin);
+               
+                } else {
+                    foreach (MenuItemCustom item in menu)
+                    {
+                        MenuItem itemLogin = new MenuItem();
+                        itemLogin.Text = item.Text;
+                        itemLogin.NavigateUrl = item.Url;
+                        Menu1.Items.Add(itemLogin);
+                    }
+                }         
         }
+
+        
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
@@ -97,6 +119,15 @@ namespace TablaPeriodica.Views
             txtConfElec.Text = elemDetail.ConfElectronica;
             txtMasa.Text = elemDetail.MasaAtomica;
             txtDetalles.Text = elemDetail.Detalles;
+        }
+
+        protected void btncerrar_Click1(object sender, EventArgs e)
+        {
+            //se borra la cookie de autenticacion
+            FormsAuthentication.SignOut();
+
+            //se redirecciona al usuario a la pagina de login
+            Response.Redirect(Request.UrlReferrer.ToString());
         }
     }
 }

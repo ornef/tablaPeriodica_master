@@ -1,25 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TablaPeriodica.aspx.cs" Inherits="TablaPeriodica.Views.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site1.Master" AutoEventWireup="true" CodeBehind="TablaPeriodica.aspx.cs" Inherits="TablaPeriodica.Views.WebForm1" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
-    <title>Tabla Peri&oacute;dica</title>
-    <!-- Estilos CSS vinculados -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="../../css/tablaPeriodica.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="../../scripts/jquery.fancybox.css"/>
-</head>
-<body>
-    <header>
-        <div id="menu"><a class="menu" id="logueo" title="Login" href="login.aspx">Login</a>&nbsp;
-        <a class="menu" id="historial" title="Historial" href="../administracion/Historial.aspx">Historial</a></div>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cabecera_va_aqui" runat="server">
+      <header>
+        <div id="menu">
+             <asp:Menu ID="Menu1" runat="server" Orientation="Vertical">
+            </asp:Menu>
+        </div>
         <div id="titulo">2 TABLA PERIODICA DE LOS ELEMENTOS 3</div>
-        <div id="clear"></div>
+        <div id="clear"> </div>
     </header>
-        <form id="form" runat="server">  
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="cuerpo_va_aqui" runat="server">
         <div style="display:none">
             <div id="inlineElemento" onclick="inlineElemento_Click">
                 <asp:Table ID="TableElement" runat="server">
@@ -78,7 +71,7 @@
                 <asp:HiddenField ID="hiddenElemento" runat="server" OnValueChanged="btnPreguntar_Click" />
             </div>
         
-    </form>
+
     <div class="container-fluid">
         <!-- columna grupos -->
 	    <div class="row">
@@ -858,5 +851,7 @@
         })
 		
     </script>
-</body>
-</html>
+
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="pie_va_aqui" runat="server">
+</asp:Content>

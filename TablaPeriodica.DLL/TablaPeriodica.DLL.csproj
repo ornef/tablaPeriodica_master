@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ElementoTabla.cs" />
+    <Compile Include="MenuItemCustom.cs" />
     <Compile Include="Pregunta.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
