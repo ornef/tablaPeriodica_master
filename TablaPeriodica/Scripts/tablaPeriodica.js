@@ -1,5 +1,5 @@
 ﻿function changeBackground(list) {
-    var fondo = "url(../Scripts/fancybox_overlay.png)";
+    var fondo = "url(../../Scripts/fancybox_overlay.png)";
     i = list.length;
     while (i--) {
         list[i].style.background = fondo;
