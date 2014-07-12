@@ -38,6 +38,7 @@
 								<label class="control-label"  for="username">Usuario</label>
 								<div class="controls">
                                     <asp:TextBox ID="username" runat="server" CssClass="input-xlarge" TextMode="Email"></asp:TextBox>
+								    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="username" CssClass="alert-error" ErrorMessage="*"></asp:RequiredFieldValidator>
 								</div>
 							</div>			
 							<div class="control-group">
@@ -45,6 +46,7 @@
 								<label class="control-label" for="password">Contrase&ntilde;a</label>
 								<div class="controls">
 									 <asp:TextBox ID="password" runat="server" CssClass="input-xlarge" TextMode="Password"></asp:TextBox>
+								     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="password" CssClass="alert-error" ErrorMessage="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
 								</div>
 							</div>
 							<div class="control-group">

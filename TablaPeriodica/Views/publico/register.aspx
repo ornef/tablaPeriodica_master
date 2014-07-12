@@ -21,7 +21,7 @@
         <link href="../../Scripts/login/bootstrap.min.css" rel="stylesheet" class="cssdeck" />
 
         <div class="" id="loginModal">
-            <div class="modal-body">
+            <div class="modal-body" style="overflow-y: visible;">
                 <div class="well">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#login" data-toggle="tab">Registrarme</a></li>
@@ -36,24 +36,36 @@
                                         <label class="control-label">Nombre</label>
                                         <div class="controls">
                                             <asp:TextBox ID="txtNombre" runat="server" CssClass="input-xlarge"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombre" CssClass="alert-error" ErrorMessage="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Apellido</label>
                                         <div class="controls">
                                             <asp:TextBox ID="txtApellido" runat="server" CssClass="input-xlarge"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtApellido" CssClass="alert-error" ErrorMessage="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Email</label>
                                         <div class="controls">
                                             <asp:TextBox ID="txtEmail" runat="server" CssClass="input-xlarge" TextMode="Email"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtEmail" CssClass="alert-error" ErrorMessage="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">Contraseña</label>
                                         <div class="controls">
-                                            <asp:TextBox ID="txtContrasenia" runat="server" CssClass="input-xlarge" TextMode="Password"></asp:TextBox>
+                                            <asp:TextBox ID="txtContrasenia" runat="server" CssClass="input-xlarge" TextMode="Password"></asp:TextBox> 
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtContrasenia" CssClass="alert-error" ErrorMessage="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Repita la Contraseña</label>
+                                        <div class="controls">
+                                            <asp:TextBox ID="txtContraseniaRepetida" runat="server" CssClass="input-xlarge" TextMode="Password" CausesValidation="True"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtContraseniaRepetida" CssClass="alert-error" ErrorMessage="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtContrasenia" ControlToValidate="txtContraseniaRepetida" CssClass="alert-error" ErrorMessage="La contraseña no coincide"></asp:CompareValidator>
                                         </div>
                                     </div>
                                     <div>
