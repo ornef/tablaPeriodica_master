@@ -13,6 +13,15 @@ namespace TablaPeriodica.Views.publico {
     public partial class mostrarElemento {
         
         /// <summary>
+        /// Head1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TableCell TableCell2;
         
         /// <summary>
-        /// txtSimbolo control.
+        /// lblSimbolo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSimbolo;
+        protected global::System.Web.UI.WebControls.Label lblSimbolo;
         
         /// <summary>
         /// TableRow2 control.
@@ -103,13 +112,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TableCell TableCell18;
         
         /// <summary>
-        /// txtNombre control.
+        /// lblNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
         
         /// <summary>
         /// TableRow1 control.
@@ -139,13 +148,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TableCell TableCell4;
         
         /// <summary>
-        /// txtNroAtomico control.
+        /// lblNroAtomico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNroAtomico;
+        protected global::System.Web.UI.WebControls.Label lblNroAtomico;
         
         /// <summary>
         /// TableRow3 control.
@@ -175,13 +184,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TableCell TableCell6;
         
         /// <summary>
-        /// txtValencia control.
+        /// lblTipo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValencia;
+        protected global::System.Web.UI.WebControls.Label lblTipo;
         
         /// <summary>
         /// TableRow4 control.
@@ -211,13 +220,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TableCell TableCell8;
         
         /// <summary>
-        /// txtElectronegatividad control.
+        /// lblMasa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtElectronegatividad;
+        protected global::System.Web.UI.WebControls.Label lblMasa;
         
         /// <summary>
         /// TableRow5 control.
@@ -247,13 +256,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TableCell TableCell10;
         
         /// <summary>
-        /// txtConfElec control.
+        /// lblGrupo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfElec;
+        protected global::System.Web.UI.WebControls.Label lblGrupo;
         
         /// <summary>
         /// TableRow6 control.
@@ -283,13 +292,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TableCell TableCell12;
         
         /// <summary>
-        /// txtMasa control.
+        /// lblPeriodo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMasa;
+        protected global::System.Web.UI.WebControls.Label lblPeriodo;
         
         /// <summary>
         /// TableRow7 control.
