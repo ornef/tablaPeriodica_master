@@ -38,9 +38,9 @@ namespace TablaPeriodica.DAL
                     elemDetail.Simbolo = reader.GetString(reader.GetOrdinal("SIMBOLO"));
                     elemDetail.Nombre = reader.GetString(reader.GetOrdinal("NOMBRE"));
                     elemDetail.Valencia = reader.GetString(reader.GetOrdinal("VALENCIA"));
-                    elemDetail.Electronegatividad = reader.GetString(reader.GetOrdinal("ELECTRONEGATIVIDAD"));
+                    elemDetail.Electronegatividad = reader.GetDecimal(reader.GetOrdinal("ELECTRONEGATIVIDAD"));
                     elemDetail.ConfElectronica = reader.GetString(reader.GetOrdinal("CONF_ELECTRONICA"));
-                    elemDetail.MasaAtomica = reader.GetString(reader.GetOrdinal("MASA_ATOMICA"));
+                    elemDetail.MasaAtomica = reader.GetDecimal(reader.GetOrdinal("MASA_ATOMICA"));
                     elemDetail.Detalles = reader.GetString(reader.GetOrdinal("DETALLES"));
                 }
                 reader.Close();

@@ -12,9 +12,9 @@ namespace TablaPeriodica.DLL
         private int nroAtomico;
         private String nombre;
         private String valencia;
-        private String electronegatividad;
+        private decimal electronegatividad;
         private String confElectronica;
-        private String masaAtomica;
+        private decimal masaAtomica;
         private String detalles;
         private String imagen;
         private decimal ptoEbullicion;
@@ -45,7 +45,7 @@ namespace TablaPeriodica.DLL
             set { valencia = value; }
         }
 
-        public String Electronegatividad
+        public decimal Electronegatividad
         {
             get { return electronegatividad; }
             set { electronegatividad = value; }
@@ -57,7 +57,7 @@ namespace TablaPeriodica.DLL
             set { confElectronica = value; }
         }
 
-        public String MasaAtomica
+        public decimal MasaAtomica
         {
             get { return masaAtomica; }
             set { masaAtomica = value; }

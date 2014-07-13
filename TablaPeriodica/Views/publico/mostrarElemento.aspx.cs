@@ -28,8 +28,42 @@ namespace TablaPeriodica.Views.publico
                     try
                     {
                         String idElemento = (String)Request.QueryString["nroAtomico"];
-                        txtDetalles.Text = "Detalles";
-                        txtNroAtomico.Text = idElemento;
+                        txtSimbolo.Enabled = false;
+                        txtNroAtomico.Enabled = false;
+                        txtNombre.Enabled = false;
+                        txtValencia.Enabled = false;
+                        txtElectronegatividad.Enabled = false;
+                        txtConfElec.Enabled = false;
+                        txtMasa.Enabled = false;
+                        txtDetalles.Enabled = false;
+                        //Si el alumno esta logueado mostrar componentes para enviar mensaje
+                        //Obtener rol de usuario en sesion para ocultar/mostrar componentes
+                        Usuario usr = (Usuario)Session["usuario"];
+                        if (usr != null)
+                        {
+                            if ("ALU".Equals(usr.TipoUsuario))
+                            {
+                                btnEditar.Visible = false;
+                                btnGuardar.Visible = false;
+                                btnPreguntar.Visible = true;
+
+                            }
+                            else if ("PRO".Equals(usr.TipoUsuario))
+                            {
+                                btnEditar.Visible = true;
+                                btnGuardar.Visible = true;
+                                btnPreguntar.Visible = false;
+
+                            }
+                        }
+                        else
+                        {
+                            btnEditar.Visible = false;
+                            btnGuardar.Visible = false;
+                            btnPreguntar.Visible = false;
+                        }
+
+                        FillTablaElemento(idElemento);
 
                     }
                     catch (Exception ex)
@@ -73,57 +107,16 @@ namespace TablaPeriodica.Views.publico
             }
         }
 
-        protected void inlineElemento_Click(object sender, EventArgs e)
+        private void FillTablaElemento(String nroAtomico)
         {
-            txtSimbolo.Enabled = false;
-            txtNroAtomico.Enabled = false;
-            txtNombre.Enabled = false;
-            txtValencia.Enabled = false;
-            txtElectronegatividad.Enabled = false;
-            txtConfElec.Enabled = false;
-            txtMasa.Enabled = false;
-            txtDetalles.Enabled = false;
-            //Si el alumno esta logueado mostrar componentes para enviar mensaje
-            //Obtener rol de usuario en sesion para ocultar/mostrar componentes
-            Usuario usr = (Usuario)Session["usuario"];
-            if (usr != null)
-            {
-                if ("ALU".Equals(usr.TipoUsuario))
-                {
-                    btnEditar.Visible = false;
-                    btnGuardar.Visible = false;
-                    btnPreguntar.Visible = true;
-
-                }
-                else if ("PRO".Equals(usr.TipoUsuario))
-                {
-                    btnEditar.Visible = true;
-                    btnGuardar.Visible = true;
-                    btnPreguntar.Visible = false;
-
-                }
-            }
-            else
-            {
-                btnEditar.Visible = false;
-                btnGuardar.Visible = false;
-                btnPreguntar.Visible = false;
-            }
-
-            FillTablaElemento();
-        }
-
-        private void FillTablaElemento()
-        {
-            int nroAtomico = 1; //TO DO: Obtener el nroAtomico en el click on del elemento
-            ElementoTabla elemDetail = elemBiz.getElementDetails(nroAtomico);
+            ElementoTabla elemDetail = elemBiz.getElementDetails(Convert.ToInt32(nroAtomico));
             txtSimbolo.Text = elemDetail.Simbolo;
             txtNroAtomico.Text = elemDetail.NroAtomico.ToString();
             txtNombre.Text = elemDetail.Nombre;
             txtValencia.Text = elemDetail.Valencia;
-            txtElectronegatividad.Text = elemDetail.Electronegatividad;
+            txtElectronegatividad.Text = elemDetail.Electronegatividad.ToString();
             txtConfElec.Text = elemDetail.ConfElectronica;
-            txtMasa.Text = elemDetail.MasaAtomica;
+            txtMasa.Text = elemDetail.MasaAtomica.ToString();
             txtDetalles.Text = elemDetail.Detalles;
         }
 
