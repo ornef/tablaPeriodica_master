@@ -16,7 +16,7 @@ namespace TablaPeriodica.Biz
         private static String PREG_EXMSG = "No se pudo enviar el mensaje, por favor contáctese con soporte";
 
               
-        public void enviarMensaje(String mensaje, Usuario usuario, String elemento) {
+        public void enviarMensaje(String mensaje, Usuario usuario, String elemento, String profesor) {
             try
             {
                 Pregunta preg = new Pregunta();
@@ -24,6 +24,7 @@ namespace TablaPeriodica.Biz
                 preg.NroAtomico = Int32.Parse(elemento);
                 preg.Fecha = DateTime.Now;
                 preg.DeUsuario = usuario.Mail;
+                preg.AUsuario = profesor;
                 pregDAL.addPregunta(preg);
             }
             catch (DbException dbEx)

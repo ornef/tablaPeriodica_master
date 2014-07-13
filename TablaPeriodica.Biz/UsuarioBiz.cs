@@ -39,5 +39,9 @@ namespace TablaPeriodica.Biz
             usuario.TipoUsuario = "ALU";
             usuarioDAL.insertUsuario(usuario);
         }
+
+        public List<Usuario> getProfesores() {
+            return usuarioDAL.getProfesores();
+        }
     }
  }

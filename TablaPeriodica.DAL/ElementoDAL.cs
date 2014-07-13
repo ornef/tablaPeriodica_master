@@ -37,11 +37,10 @@ namespace TablaPeriodica.DAL
                     elemDetail.NroAtomico = reader.GetInt32(reader.GetOrdinal("NRO_ATOMICO"));
                     elemDetail.Simbolo = reader.GetString(reader.GetOrdinal("SIMBOLO"));
                     elemDetail.Nombre = reader.GetString(reader.GetOrdinal("NOMBRE"));
-                    elemDetail.Valencia = reader.GetString(reader.GetOrdinal("VALENCIA"));
-                    elemDetail.Electronegatividad = reader.GetDecimal(reader.GetOrdinal("ELECTRONEGATIVIDAD"));
-                    elemDetail.ConfElectronica = reader.GetString(reader.GetOrdinal("CONF_ELECTRONICA"));
-                    elemDetail.MasaAtomica = reader.GetDecimal(reader.GetOrdinal("MASA_ATOMICA"));
-                    elemDetail.Detalles = reader.GetString(reader.GetOrdinal("DETALLES"));
+                    elemDetail.Tipo = reader.GetInt32(reader.GetOrdinal("TIPO"));
+                    elemDetail.Grupo = reader.GetInt32(reader.GetOrdinal("GRUPO"));
+                    elemDetail.Periodo = reader.GetInt32(reader.GetOrdinal("PERIODO"));
+                    elemDetail.MasaAtomica = reader.GetString(reader.GetOrdinal("MASA_ATOMICA"));
                 }
                 reader.Close();
                 con.Close();
@@ -55,7 +54,7 @@ namespace TablaPeriodica.DAL
         }
         public void updateElemento(int nroAtomico, String detalles)
         {
-            String query = "UPDATE ELEMENTO SET DETALLES = @detallesParam WHERE NRO_ATOMICO = @nroAtomicoParam";
+            String query = "UPDATE DETALLE SET DETALLE = @detallesParam WHERE NRO_ATOMICO = @nroAtomicoParam";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
             con.ConnectionString = Commons.getConnectionString();
             IDbCommand cmd = Commons.getProviderFactory().CreateCommand();

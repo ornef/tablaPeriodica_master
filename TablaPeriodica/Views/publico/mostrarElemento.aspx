@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <div id="inlineElemento" onclick="inlineElemento_Click">
+            <div id="inlineElemento">
                 <asp:Label ID="lblMsgMostrarElemento" runat="server" CssClass="alert-error"></asp:Label>
                 <asp:Table ID="TableElement" runat="server">
                     <asp:TableRow runat="server" ID="ElementoTabla">
@@ -57,8 +57,19 @@
                     </asp:TableRow>
                 </asp:Table>
                 <div id="hacerPregunta">
-                    <asp:TextBox ID="txtMessage" runat="server" Visible="false" TextMode="multiline" Columns="40" Rows="5" OnTextChanged="btnEnviar_Click"></asp:TextBox>
-                    <asp:Button ID="btnEnviar" Text="Enviar" runat="server" OnClick="btnPreguntar_Click" Visible="false" />
+                    <asp:Table ID="TablePreg" runat="server">
+                    <asp:TableRow runat="server" ID="TableRow9">
+                        <asp:TableCell ID="TableCell20" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right"><asp:Label runat="server" ID="lblPregProfesor"  Text="Profesor:" Visible="false"></asp:Label></asp:TableCell>
+                        <asp:TableCell ID="TableCell21" runat="server" Width="200px" HorizontalAlign="Left"><asp:DropDownList ID="lstProfesores" runat="server" DataTextField="mail" DataValueField="mail" ></asp:DropDownList></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server" ID="TableRow10">
+                        <asp:TableCell ID="TableCell22" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right"><asp:Label runat="server" ID="lblPregPregunta"  Text="Pregunta:" Visible="false"></asp:Label></asp:TableCell>
+                        <asp:TableCell ID="TableCell23" runat="server" Width="200px" HorizontalAlign="Left"> <asp:TextBox ID="txtMessage" runat="server" Visible="false" TextMode="multiline" Columns="40" Rows="5"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow runat="server" ID="TableRow11">
+                        <asp:TableCell ID="TableCell24" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right"><asp:Button ID="btnEnviar" Text="Enviar" runat="server" OnClick="btnEnviar_Click" Visible="false" /></asp:TableCell>
+                    </asp:TableRow>
+                        </asp:Table>
                 </div>
             </div>
         </div>

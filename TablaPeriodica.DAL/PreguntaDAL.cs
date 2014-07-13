@@ -56,7 +56,6 @@ namespace TablaPeriodica.DAL
 
         public void addPregunta(Pregunta pregunta)
         {
-            Pregunta preg = new Pregunta();
             String query = "INSERT INTO MENSAJES (DE_USUARIO, A_USUARIO, MENSAJE, ELEMENTO, FECHA) VALUES (@deUsuario, @aUsuario, @mensaje, @elemento, @fecha)";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
             con.ConnectionString = Commons.getConnectionString();
@@ -67,27 +66,27 @@ namespace TablaPeriodica.DAL
             IDataParameter param = cmd.CreateParameter();
             param.DbType = DbType.String;
             param.ParameterName = "@deUsuario";
-            param.Value = preg.DeUsuario;
+            param.Value = pregunta.DeUsuario;
             cmd.Parameters.Add(param);
             param = cmd.CreateParameter();
             param.DbType = DbType.String;
             param.ParameterName = "@aUsuario";
-            param.Value = preg.AUsuario;
+            param.Value = pregunta.AUsuario;
             cmd.Parameters.Add(param);
             param = cmd.CreateParameter();
             param.DbType = DbType.String;
             param.ParameterName = "@mensaje";
-            param.Value = preg.Mensaje;
+            param.Value = pregunta.Mensaje;
             cmd.Parameters.Add(param);
             param = cmd.CreateParameter();
             param.DbType = DbType.String;
             param.ParameterName = "@elemento";
-            param.Value = preg.NroAtomico;
+            param.Value = pregunta.NroAtomico;
             cmd.Parameters.Add(param);
             param = cmd.CreateParameter();
-            param.DbType = DbType.DateTime;
-            param.ParameterName = " @fecha";
-            param.Value = preg.Fecha;
+            param.DbType = DbType.Time;
+            param.ParameterName = "@fecha";
+            param.Value = DateTime.Now.ToString("dd/MM/yyyy");
             cmd.Parameters.Add(param);
             try
             {

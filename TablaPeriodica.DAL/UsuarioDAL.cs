@@ -33,12 +33,7 @@ namespace TablaPeriodica.DAL
                         con.Open();
                         IDataReader reader = cmd.ExecuteReader();
                             if(reader.Read()){
-                                usuario = new Usuario();
-                                usuario.Mail = reader.GetString(reader.GetOrdinal("MAIL"));
-                                usuario.Nombre = reader.GetString(reader.GetOrdinal("NOMBRE"));
-                                usuario.Apellido = reader.GetString(reader.GetOrdinal("APELLIDO"));
-                                usuario.TipoUsuario = reader.GetString(reader.GetOrdinal("TIPO_USUARIO"));
-                                usuario.Contrasenia = reader.GetString(reader.GetOrdinal("CONTRASENIA"));
+                                usuario = buildUsuario(reader);
                             }
                             reader.Close();
                             con.Close();
@@ -94,6 +89,47 @@ namespace TablaPeriodica.DAL
             str = String.Format(str, usuario.Nombre, usuario.Apellido, usuario.TipoUsuario, usuario.Mail, usuario.Contrasenia);
 
             this.executeNonQuery(str, CommandType.Text);
+        }
+
+        public List<DLL.Usuario> getProfesores()
+        {
+            List<Usuario> profesores = new List<Usuario>();
+            String query = "SELECT NOMBRE, APELLIDO, TIPO_USUARIO, MAIL, CONTRASENIA FROM USUARIOS where TIPO_USUARIO = 'PRO' ";
+            IDbConnection con = Commons.getProviderFactory().CreateConnection();
+            con.ConnectionString = Commons.getConnectionString();
+            IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            try
+            {
+                con.Open();
+                IDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Usuario usuario = buildUsuario(reader);
+                    profesores.Add(usuario);
+                }
+                reader.Close();
+                con.Close();
+                con.Dispose();
+            }
+            catch (DbException dbex)
+            {
+                throw;
+            }
+            return profesores;
+        }
+
+        private Usuario buildUsuario(IDataReader reader)
+        {
+            Usuario usuario = new Usuario();
+            usuario.Mail = reader.GetString(reader.GetOrdinal("MAIL"));
+            usuario.Nombre = reader.GetString(reader.GetOrdinal("NOMBRE"));
+            usuario.Apellido = reader.GetString(reader.GetOrdinal("APELLIDO"));
+            usuario.TipoUsuario = reader.GetString(reader.GetOrdinal("TIPO_USUARIO"));
+            usuario.Contrasenia = reader.GetString(reader.GetOrdinal("CONTRASENIA"));
+            return usuario;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TablaPeriodica.Biz;
+using TablaPeriodica.DAL;
 using TablaPeriodica.DLL;
 
 namespace TablaPeriodica.Views.publico
@@ -15,12 +16,17 @@ namespace TablaPeriodica.Views.publico
         private UsuarioBiz loginBiz = new UsuarioBiz();
         private PreguntaBiz pregBiz = new PreguntaBiz();
         private ElementoBiz elemBiz = new ElementoBiz();
+        private TipoElementoDAL tipoDAL = new TipoElementoDAL();
+        private DetalleDAL detalleDAL = new DetalleDAL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             // Manually register the event-handling method for
             // the Click event of the Button control.
             btnPreguntar.Click += new EventHandler(this.btnPreguntar_Click);
+            lstProfesores.DataSource = loginBiz.getProfesores();
+            lstProfesores.DataBind();
+
             if (!IsPostBack)
             {
                 if (Request.QueryString["nroAtomico"] != null)
@@ -28,13 +34,13 @@ namespace TablaPeriodica.Views.publico
                     try
                     {
                         String idElemento = (String)Request.QueryString["nroAtomico"];
-                        txtSimbolo.Enabled = false;
-                        txtNroAtomico.Enabled = false;
-                        txtNombre.Enabled = false;
-                        txtValencia.Enabled = false;
-                        txtElectronegatividad.Enabled = false;
-                        txtConfElec.Enabled = false;
-                        txtMasa.Enabled = false;
+                  //      txtSimbolo.Enabled = false;
+                   //     txtNroAtomico.Enabled = false;
+                  //      txtNombre.Enabled = false;
+                  //      txtValencia.Enabled = false;
+                  //      txtElectronegatividad.Enabled = false;
+                   //     txtConfElec.Enabled = false;
+                    //    txtMasa.Enabled = false;
                         txtDetalles.Enabled = false;
                         //Si el alumno esta logueado mostrar componentes para enviar mensaje
                         //Obtener rol de usuario en sesion para ocultar/mostrar componentes
@@ -80,25 +86,27 @@ namespace TablaPeriodica.Views.publico
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            int nroAtomico = int.Parse(txtNroAtomico.Text);
+            int nroAtomico = int.Parse(lblNroAtomico.Text);
             String detalles = txtDetalles.Text;
             elemBiz.updateElemento(nroAtomico, detalles);
         }
         protected void btnPreguntar_Click(object sender, EventArgs e)
         {
-
+            lblPregPregunta.Visible = true;
+            lblPregProfesor.Visible = true;
+            lstProfesores.Visible = true;
             txtMessage.Visible = true;
             btnEnviar.Visible = true;
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (!"".Equals(txtMessage.Text.Trim()))
+            if (!"".Equals(txtMessage.Text.Trim()) && !"".Equals(lstProfesores.SelectedValue))
             {
                 try
                 {
                     Usuario usr = (Usuario)Session["usuario"];
-                    pregBiz.enviarMensaje(txtMessage.Text, usr, txtNroAtomico.Text);
+                    pregBiz.enviarMensaje(txtMessage.Text, usr, lblNroAtomico.Text, lstProfesores.SelectedValue);
                 }
                 catch (BusinessException exc)
                 {
@@ -107,21 +115,23 @@ namespace TablaPeriodica.Views.publico
             }
             else 
             {
-                lblMsgMostrarElemento.Text = "Falta completar la pregunta";
+                lblMsgMostrarElemento.Text = "Falta completar la pregunta o seleccionar el profesor";
             }
         }
 
         private void FillTablaElemento(String nroAtomico)
         {
             ElementoTabla elemDetail = elemBiz.getElementDetails(Convert.ToInt32(nroAtomico));
-            txtSimbolo.Text = elemDetail.Simbolo;
-            txtNroAtomico.Text = elemDetail.NroAtomico.ToString();
-            txtNombre.Text = elemDetail.Nombre;
-            txtValencia.Text = elemDetail.Valencia;
-            txtElectronegatividad.Text = elemDetail.Electronegatividad.ToString();
-            txtConfElec.Text = elemDetail.ConfElectronica;
-            txtMasa.Text = elemDetail.MasaAtomica.ToString();
-            txtDetalles.Text = elemDetail.Detalles;
+                    String tipo = tipoDAL.getTipoById(elemDetail.Tipo);
+             String detalle = detalleDAL.getDetalleByNroAtomico(elemDetail.NroAtomico);
+             lblSimbolo.Text = elemDetail.Simbolo;
+             lblNroAtomico.Text = elemDetail.NroAtomico.ToString();
+             lblNombre.Text = elemDetail.Nombre;
+             lblMasa.Text = elemDetail.MasaAtomica.ToString();
+             lblTipo.Text = tipo;
+             lblGrupo.Text = elemDetail.Grupo.ToString();
+             lblPeriodo.Text = elemDetail.Periodo.ToString();
+             txtDetalles.Text = detalle;
         }
 
         protected void btncerrar_Click1(object sender, EventArgs e)
