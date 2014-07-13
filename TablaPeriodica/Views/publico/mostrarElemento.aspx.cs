@@ -23,11 +23,11 @@ namespace TablaPeriodica.Views.publico
             btnPreguntar.Click += new EventHandler(this.btnPreguntar_Click);
             if (!IsPostBack)
             {
-                if (Request.QueryString["id"] != null)
+                if (Request.QueryString["nroAtomico"] != null)
                 {
                     try
                     {
-                        String idElemento = (String)Request.QueryString["id"];
+                        String idElemento = (String)Request.QueryString["nroAtomico"];
                         txtDetalles.Text = "Detalles";
                         txtNroAtomico.Text = idElemento;
 
