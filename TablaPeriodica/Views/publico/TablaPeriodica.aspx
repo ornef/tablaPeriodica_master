@@ -1176,7 +1176,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $(".iframe").fancybox({
-                'width': '75%',
+                'width': '50%',
                 'height': '75%',
                 'autoScale': false,
                 'transitionIn': 'none',

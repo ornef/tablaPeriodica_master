@@ -97,13 +97,17 @@ namespace TablaPeriodica.Views.publico
             {
                 try
                 {
-                    //Ver como obtener los valores de los campos hidden
-                    pregBiz.enviarMensaje(txtMessage.Text, hiddenDisplayName.Value, hiddenElemento.Value);
+                    Usuario usr = (Usuario)Session["usuario"];
+                    pregBiz.enviarMensaje(txtMessage.Text, usr, txtNroAtomico.Text);
                 }
                 catch (BusinessException exc)
                 {
-                    throw;
+                    lblMsgMostrarElemento.Text = exc.Message;
                 }
+            }
+            else 
+            {
+                lblMsgMostrarElemento.Text = "Falta completar la pregunta";
             }
         }
 
