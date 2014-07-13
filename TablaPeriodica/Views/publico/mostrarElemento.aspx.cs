@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TablaPeriodica.Biz;
 using TablaPeriodica.DLL;
+using TablaPeriodica.DAL;
 
 namespace TablaPeriodica.Views.publico
 {
@@ -15,6 +16,8 @@ namespace TablaPeriodica.Views.publico
         private UsuarioBiz loginBiz = new UsuarioBiz();
         private PreguntaBiz pregBiz = new PreguntaBiz();
         private ElementoBiz elemBiz = new ElementoBiz();
+        private TipoElementoDAL tipoDAL = new TipoElementoDAL();
+        private DetalleDAL detalleDAL = new DetalleDAL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,13 +31,13 @@ namespace TablaPeriodica.Views.publico
                     try
                     {
                         String idElemento = (String)Request.QueryString["nroAtomico"];
-                        txtSimbolo.Enabled = false;
-                        txtNroAtomico.Enabled = false;
-                        txtNombre.Enabled = false;
-                        txtValencia.Enabled = false;
-                        txtElectronegatividad.Enabled = false;
-                        txtConfElec.Enabled = false;
-                        txtMasa.Enabled = false;
+                        //txtSimbolo.Enabled = false;
+                        //txtNroAtomico.Enabled = false;
+                        //txtNombre.Enabled = false;
+                        //txtValencia.Enabled = false;
+                        //txtElectronegatividad.Enabled = false;
+                        //txtConfElec.Enabled = false;
+                        //txtMasa.Enabled = false;
                         txtDetalles.Enabled = false;
                         //Si el alumno esta logueado mostrar componentes para enviar mensaje
                         //Obtener rol de usuario en sesion para ocultar/mostrar componentes
@@ -80,7 +83,7 @@ namespace TablaPeriodica.Views.publico
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            int nroAtomico = int.Parse(txtNroAtomico.Text);
+            int nroAtomico = int.Parse(lblNroAtomico.Text);
             String detalles = txtDetalles.Text;
             elemBiz.updateElemento(nroAtomico, detalles);
         }
@@ -110,14 +113,16 @@ namespace TablaPeriodica.Views.publico
         private void FillTablaElemento(String nroAtomico)
         {
             ElementoTabla elemDetail = elemBiz.getElementDetails(Convert.ToInt32(nroAtomico));
-            txtSimbolo.Text = elemDetail.Simbolo;
-            txtNroAtomico.Text = elemDetail.NroAtomico.ToString();
-            txtNombre.Text = elemDetail.Nombre;
-            txtValencia.Text = elemDetail.Valencia;
-            txtElectronegatividad.Text = elemDetail.Electronegatividad.ToString();
-            txtConfElec.Text = elemDetail.ConfElectronica;
-            txtMasa.Text = elemDetail.MasaAtomica.ToString();
-            txtDetalles.Text = elemDetail.Detalles;
+            String tipo = tipoDAL.getTipoById(elemDetail.Tipo);
+            String detalle = detalleDAL.getDetalleByNroAtomico(elemDetail.NroAtomico);
+            lblSimbolo.Text = elemDetail.Simbolo;
+            lblNroAtomico.Text = elemDetail.NroAtomico.ToString();
+            lblNombre.Text = elemDetail.Nombre;
+            lblMasa.Text = elemDetail.MasaAtomica.ToString();
+            lblTipo.Text = tipo;
+            lblGrupo.Text = elemDetail.Grupo.ToString();
+            lblPeriodo.Text = elemDetail.Periodo.ToString();
+            txtDetalles.Text = detalle;
         }
 
         protected void btncerrar_Click1(object sender, EventArgs e)

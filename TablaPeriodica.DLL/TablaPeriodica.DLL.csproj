@@ -39,13 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElementoDetalle.cs" />
     <Compile Include="ElementoTabla.cs" />
     <Compile Include="MenuItemCustom.cs" />
     <Compile Include="Pregunta.cs" />
+    <Compile Include="TipoElemento.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\ScriptElementos.sql" />
     <Content Include="scripts\ScriptBD.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

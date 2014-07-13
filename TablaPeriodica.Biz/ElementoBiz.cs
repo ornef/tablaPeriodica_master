@@ -14,8 +14,8 @@ namespace TablaPeriodica.Biz
 
         public ElementoTabla getElementDetails(int nroAtomico)
         {
-            ElementoTabla elemDetail = new ElementoTabla();
-            return  elemDetail = elemDAL.getElementDetails(nroAtomico);
+            
+            return elemDAL.getElementDetails(nroAtomico);
         }
 
         public void updateElemento(int nroAtomico, String detalles)

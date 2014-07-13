@@ -42,10 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons.cs" />
+    <Compile Include="DetalleDAL.cs" />
     <Compile Include="ElementoDAL.cs" />
+    <Compile Include="IDALDetalle.cs" />
     <Compile Include="IDALElemento.cs" />
     <Compile Include="IDALPregunta.cs" />
+    <Compile Include="IDALTipoElemento.cs" />
     <Compile Include="PreguntaDAL.cs" />
+    <Compile Include="TipoElementoDAL.cs" />
     <Compile Include="UsuarioDAL.cs" />
     <Compile Include="IDALUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

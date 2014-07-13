@@ -11,16 +11,11 @@ namespace TablaPeriodica.DLL
         private String simbolo;
         private int nroAtomico;
         private String nombre;
-        private String valencia;
-        private decimal electronegatividad;
-        private String confElectronica;
-        private decimal masaAtomica;
-        private String detalles;
-        private String imagen;
-        private decimal ptoEbullicion;
-        private decimal ptoFusion;
-        private decimal densidad;
-
+        private String masaAtomica;
+        private int tipo;
+        private int grupo;
+        private int periodo;
+        
         public String Simbolo
         {
             get { return simbolo; }
@@ -39,58 +34,29 @@ namespace TablaPeriodica.DLL
             set { nroAtomico = value; }
         }
 
-        public String Valencia
-        {
-            get { return valencia; }
-            set { valencia = value; }
-        }
-
-        public decimal Electronegatividad
-        {
-            get { return electronegatividad; }
-            set { electronegatividad = value; }
-        }
-
-        public String ConfElectronica
-        {
-            get { return confElectronica; }
-            set { confElectronica = value; }
-        }
-
-        public decimal MasaAtomica
+        public String MasaAtomica
         {
             get { return masaAtomica; }
             set { masaAtomica = value; }
         }
 
-        public String Detalles
+
+        public int Tipo
         {
-            get { return detalles; }
-            set { detalles = value; }
+            get { return tipo; }
+            set { tipo = value; }
         }
 
-        public String Imagen
+        public int Grupo
         {
-            get { return imagen; }
-            set { imagen = value; }
+            get { return grupo; }
+            set { grupo = value; }
         }
 
-        public decimal PtoEbullicion
+        public int Periodo
         {
-            get { return ptoEbullicion; }
-            set { ptoEbullicion = value; }
-        }
-
-        public decimal PtoFusion
-        {
-            get { return ptoFusion; }
-            set { ptoFusion = value; }
-        }
-
-        public decimal Densidad
-        {
-            get { return densidad; }
-            set { densidad = value; }
+            get { return periodo; }
+            set { periodo = value; }
         }
     }
 }
