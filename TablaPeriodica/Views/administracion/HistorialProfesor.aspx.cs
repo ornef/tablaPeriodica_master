@@ -61,11 +61,15 @@ namespace TablaPeriodica.Views.administracion
       
             TextBox textRespuesta = (TextBox)row.Cells[6].Controls[0];
             String id = (String)row.Cells[1].Text;
-        
-            
-            if (!"".Equals(textRespuesta.Text)) {
+
+
+            if (!"".Equals(textRespuesta.Text))
+            {
                 pregBiz.responderPregunta(Convert.ToInt32(id), textRespuesta.Text);
-                
+
+            }
+            else {
+                lblMsgHistorial.Text = "Se debe completar la respuesta";
             }
             GridView1.EditIndex = -1;
             fillGrilla();

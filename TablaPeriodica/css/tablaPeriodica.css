@@ -387,6 +387,7 @@ ul {
 /* visited link */
 .menu:visited {
     color: white;
+     text-decoration:none;
 }
 
 /* mouse over link */
@@ -407,4 +408,26 @@ ul {
 .lantanidos
 {
     padding-top:1%;
+}
+
+
+/* unvisited link */
+.showElement:link {
+    color: black;
+}
+
+/* visited link */
+.showElement:visited {
+    color: black;
+    text-decoration:none;
+}
+
+/* mouse over link */
+.showElement:hover {
+    color: black;
+}
+
+/* selected link */
+.menu a:active {
+    color: #0000FF;
 }

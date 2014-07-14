@@ -76,12 +76,15 @@ namespace TablaPeriodica.Views.publico
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             txtDetalles.Enabled = true;
+            txtDetalles.ReadOnly = false;
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             int nroAtomico = int.Parse(lblNroAtomico.Text);
             String detalles = txtDetalles.Text;
             elemBiz.updateElemento(nroAtomico, detalles);
+            txtDetalles.Enabled = false;
+            txtDetalles.ReadOnly = true;
         }
         protected void btnPreguntar_Click(object sender, EventArgs e)
         {
