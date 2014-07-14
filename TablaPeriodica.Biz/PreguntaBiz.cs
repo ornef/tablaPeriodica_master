@@ -20,7 +20,7 @@ namespace TablaPeriodica.Biz
             try
             {
                 Pregunta preg = new Pregunta();
-                preg.Mensaje = mensaje;
+                preg.PreguntaAlumno = mensaje;
                 preg.NroAtomico = Int32.Parse(elemento);
                 preg.Fecha = DateTime.Now;
                 preg.DeUsuario = usuario.Mail;
@@ -41,24 +41,27 @@ namespace TablaPeriodica.Biz
         {
             try
             {
-                List<Pregunta> listPreg = new List<Pregunta>();
-                Pregunta preg = new Pregunta();
-                preg.IdMensaje = 1;
-                preg.DeUsuario = "Juan";
-                preg.AUsuario = "Ana";
-                preg.Fecha = DateTime.Now;
-                preg.Mensaje = "Pregunta";
-                preg.NroAtomico = 1;
-
-                listPreg.Add(preg);
-                return listPreg;
+                return pregDAL.SelectAll();
             }
             catch (Exception ex)
             {
-                throw;
+                throw new BusinessException(PREG_EXMSG, ex);
             }
 
         }
+
+        public List<Pregunta> getPreguntasProfesor(String mail) {
+
+            return pregDAL.getPreguntasParaProfesor(mail);
+        }
+
+         public List<Pregunta> getPreguntasAlumno(String mail) {
+            return pregDAL.getPreguntasAlumno(mail);
+        }
+
+         public void responderPregunta(int id, String respuesta) {
+             pregDAL.responder(id, respuesta);
+         }
 
     }
 }

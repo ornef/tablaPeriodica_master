@@ -12,7 +12,8 @@ namespace TablaPeriodica.DLL
         private Int32 idMensaje;
         private String deUsuario;
         private String aUsuario;
-        private String mensaje;
+        private String pregunta;
+        private String respuesta;
         private DateTime fecha;
         private Int32 nroAtomico;
 
@@ -36,10 +37,16 @@ namespace TablaPeriodica.DLL
             set { aUsuario = value; }
         }
 
-        public String Mensaje
+        public String PreguntaAlumno
         {
-            get { return mensaje; }
-            set { mensaje = value; }
+            get { return pregunta; }
+            set { pregunta = value; }
+        }
+
+        public String Respuesta
+        {
+            get { return respuesta; }
+            set { respuesta = value; }
         }
 
         public DateTime Fecha

@@ -34,13 +34,6 @@ namespace TablaPeriodica.Views.publico
                     try
                     {
                         String idElemento = (String)Request.QueryString["nroAtomico"];
-                  //      txtSimbolo.Enabled = false;
-                   //     txtNroAtomico.Enabled = false;
-                  //      txtNombre.Enabled = false;
-                  //      txtValencia.Enabled = false;
-                  //      txtElectronegatividad.Enabled = false;
-                   //     txtConfElec.Enabled = false;
-                    //    txtMasa.Enabled = false;
                         txtDetalles.Enabled = false;
                         //Si el alumno esta logueado mostrar componentes para enviar mensaje
                         //Obtener rol de usuario en sesion para ocultar/mostrar componentes
@@ -74,7 +67,7 @@ namespace TablaPeriodica.Views.publico
                     }
                     catch (Exception ex)
                     {
-
+                        lblMsgMostrarElemento.Text = ex.Message;
                     }
                 }
             }
@@ -97,6 +90,7 @@ namespace TablaPeriodica.Views.publico
             lstProfesores.Visible = true;
             txtMessage.Visible = true;
             btnEnviar.Visible = true;
+            lblMsgMostrarElemento.Text = "";
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
@@ -107,6 +101,14 @@ namespace TablaPeriodica.Views.publico
                 {
                     Usuario usr = (Usuario)Session["usuario"];
                     pregBiz.enviarMensaje(txtMessage.Text, usr, lblNroAtomico.Text, lstProfesores.SelectedValue);
+                    lblPregPregunta.Visible = false;
+                    lblPregProfesor.Visible = false;
+                    lstProfesores.Visible = false;
+                    txtMessage.Text = "";
+                    txtMessage.Visible = false;
+                    btnEnviar.Visible = false;
+                    lblMsgMostrarElemento.Text = "Tu pregunta ha sido enviada!";
+                    
                 }
                 catch (BusinessException exc)
                 {

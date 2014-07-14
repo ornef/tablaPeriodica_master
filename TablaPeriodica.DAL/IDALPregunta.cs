@@ -9,7 +9,7 @@ namespace TablaPeriodica.DAL
 {
     interface IDALPregunta
     {
-        Pregunta getPregunta(Int32 idMensaje);
+        List<Pregunta> getPreguntasParaProfesor(String mailProfe);
         void addPregunta(Pregunta pregunta);
 
     }

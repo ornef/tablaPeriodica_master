@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TablaPeriodica.Biz;
+using TablaPeriodica.DLL;
 
 namespace TablaPeriodica.Views
 {
@@ -15,35 +16,29 @@ namespace TablaPeriodica.Views
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Page.IsPostBack)
-            {
-
-            }
-            else
-            {
-                Actualizar();
-            }
+            fillGrilla();
         }
 
-        private void Actualizar()
-        {
-            try
-            {
-                GridView1.DataSource = pregBiz.GetAllMessages();
-                GridView1.DataBind();
-            }
-            catch (Exception ex)
-            {
-                //GestorErrores.Execute(ex);
-                //throw;
-            }
-        }
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
-            Actualizar();
+            fillGrilla();
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e){
+        private void fillGrilla() {
+            Usuario usr = (Usuario)Session["usuario"];
+            if (usr != null)
+            {
+                if ("PRO".Equals(usr.TipoUsuario))
+                {
+                    GridView1.DataSource = pregBiz.getPreguntasProfesor(usr.Mail);
+                    GridView1.DataBind();
+                }
+                else if ("ALU".Equals(usr.TipoUsuario))
+                {
+                    GridView1.DataSource = pregBiz.getPreguntasAlumno(usr.Mail);
+                    GridView1.DataBind();
+                }
+            }
         }
     }
 }

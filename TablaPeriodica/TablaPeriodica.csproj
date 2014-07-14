@@ -265,6 +265,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Views\administracion\Historial.aspx" />
+    <Content Include="Views\administracion\HistorialProfesor.aspx" />
     <Content Include="Views\publico\login.aspx" />
     <Content Include="Views\publico\logOut.aspx" />
     <Content Include="Views\publico\mostrarElemento.aspx" />
@@ -291,6 +292,13 @@
     </Compile>
     <Compile Include="Views\administracion\Historial.aspx.designer.cs">
       <DependentUpon>Historial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\administracion\HistorialProfesor.aspx.cs">
+      <DependentUpon>HistorialProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\administracion\HistorialProfesor.aspx.designer.cs">
+      <DependentUpon>HistorialProfesor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\publico\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

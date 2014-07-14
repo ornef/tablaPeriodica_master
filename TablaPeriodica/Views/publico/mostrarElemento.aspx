@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <div id="inlineElemento">
-                <asp:Label ID="lblMsgMostrarElemento" runat="server" CssClass="alert-error"></asp:Label>
+                <asp:Label ID="lblMsgMostrarElemento" runat="server" BackColor="#FFCC99"></asp:Label>
                 <asp:Table ID="TableElement" runat="server">
                     <asp:TableRow runat="server" ID="ElementoTabla">
                         <asp:TableCell ID="TableCell1" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right">S&iacute;mbolo:</asp:TableCell>
@@ -60,7 +60,7 @@
                     <asp:Table ID="TablePreg" runat="server">
                     <asp:TableRow runat="server" ID="TableRow9">
                         <asp:TableCell ID="TableCell20" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right"><asp:Label runat="server" ID="lblPregProfesor"  Text="Profesor:" Visible="false"></asp:Label></asp:TableCell>
-                        <asp:TableCell ID="TableCell21" runat="server" Width="200px" HorizontalAlign="Left"><asp:DropDownList ID="lstProfesores" runat="server" DataTextField="mail" DataValueField="mail" ></asp:DropDownList></asp:TableCell>
+                        <asp:TableCell ID="TableCell21" runat="server" Width="200px" HorizontalAlign="Left"><asp:DropDownList ID="lstProfesores" runat="server" DataTextField="mail" DataValueField="mail" Visible="false" ></asp:DropDownList></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow runat="server" ID="TableRow10">
                         <asp:TableCell ID="TableCell22" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right"><asp:Label runat="server" ID="lblPregPregunta"  Text="Pregunta:" Visible="false"></asp:Label></asp:TableCell>

@@ -3,7 +3,6 @@
     i = list.length;
     while (i--) {
         list[i].style.background = fondo;
-        $(list[i]).removeClass("fancybox");
     }
     return list;
 
@@ -12,7 +11,6 @@
 function restoreBackground(list) {
     i = list.length;
     while (i--) {
-        $(list[i]).addClass("fancybox");
         list[i].style.background = "";
     }
     return list;
@@ -21,7 +19,7 @@ function restoreBackground(list) {
 function disableDivs(noDisable) {
 
     //This will disable everything contained in the div
-    var noMetal = document.getElementsByClassName('col-sm-1 elemento no-metal fancybox');
+    var noMetal = document.getElementsByClassName('col-sm-1 elemento no-metal');
     if (noDisable != "noMetal") {
         changeBackground(noMetal);
     }
@@ -30,7 +28,7 @@ function disableDivs(noDisable) {
         restoreBackground(noMetalDisabled);
     }
 
-    var alcalinoTerreo = document.getElementsByClassName('col-sm-1 elemento metal-alcalinoterreo fancybox');
+    var alcalinoTerreo = document.getElementsByClassName('col-sm-1 elemento metal-alcalinoterreo');
     if (noDisable != "alcalinoTerreo") {
         changeBackground(alcalinoTerreo);
     }
@@ -39,7 +37,7 @@ function disableDivs(noDisable) {
         restoreBackground(alcalinoTerreoDisabled);
     }
 
-    var alcalino = document.getElementsByClassName('col-sm-1 elemento metal-alcalino fancybox');
+    var alcalino = document.getElementsByClassName('col-sm-1 elemento metal-alcalino');
     if (noDisable != "alcalino") {
         changeBackground(alcalino);
     }
@@ -48,7 +46,7 @@ function disableDivs(noDisable) {
         restoreBackground(alcalinoDisabled);
     }
 
-    var transicion = document.getElementsByClassName('col-sm-1 elemento metal-transicion fancybox');
+    var transicion = document.getElementsByClassName('col-sm-1 elemento metal-transicion');
     if (noDisable != "transicion") {
         changeBackground(transicion);
     }
@@ -57,7 +55,7 @@ function disableDivs(noDisable) {
         restoreBackground(transicionDisabled);
     }
 
-    var otrosMetales = document.getElementsByClassName('col-sm-1 elemento otros-metales fancybox');
+    var otrosMetales = document.getElementsByClassName('col-sm-1 elemento otros-metales');
     if (noDisable != "otrosMetales") {
         changeBackground(otrosMetales);
     }
@@ -66,8 +64,8 @@ function disableDivs(noDisable) {
         restoreBackground(otrosMetalesDisabled);
     }
 
-    var metaloide = document.getElementsByClassName('col-sm-1 elemento metaloide borde-izq-abajo fancybox');
-    var metaloide2 = document.getElementsByClassName('col-sm-1 elemento metaloide fancybox');
+    var metaloide = document.getElementsByClassName('col-sm-1 elemento metaloide borde-izq-abajo');
+    var metaloide2 = document.getElementsByClassName('col-sm-1 elemento metaloide');
     if (noDisable != "metaloide") {
         //document.getElementById('inlineBoro').style.background = fondo;
         changeBackground(metaloide);
@@ -81,7 +79,7 @@ function disableDivs(noDisable) {
         restoreBackground(metaloide2Disabled);
     }
 
-    var halogeno = document.getElementsByClassName('col-sm-1 elemento halogeno fancybox');
+    var halogeno = document.getElementsByClassName('col-sm-1 elemento halogeno');
     if (noDisable != "halogeno") {
         changeBackground(halogeno);
     }
@@ -90,7 +88,7 @@ function disableDivs(noDisable) {
         restoreBackground(halogenoDisabled);
     }
 
-    var gasNoble = document.getElementsByClassName('col-sm-1 elemento gas-noble fancybox');
+    var gasNoble = document.getElementsByClassName('col-sm-1 elemento gas-noble');
     if (noDisable != "gasNoble") {
         changeBackground(gasNoble);
     }
@@ -99,7 +97,7 @@ function disableDivs(noDisable) {
         restoreBackground(gasNobleDisabled);
     }
 
-    var lantanidos = document.getElementsByClassName('col-sm-1 elemento tierra-rara fancybox');
+    var lantanidos = document.getElementsByClassName('col-sm-1 elemento tierra-rara');
     if (noDisable != "tierraRara") {
         changeBackground(lantanidos);
     }

@@ -15,10 +15,10 @@ namespace TablaPeriodica.DAL
     {
         public static String TABLA_MENSAJES = "MENSAJES";
 
-        public Pregunta getPregunta(int idMensaje)
+        public List<Pregunta> getPreguntasParaProfesor (String mailProfe)
         {
-            Pregunta pregunta = new Pregunta();
-            String query = "SELECT ID_MENSAJE, DE_USUARIO, A_USUARIO, MENSAJE, ELEMENTO, FECHA FROM MENSAJES WHERE ID_MENSAJE = @idMensajeParam";
+            List<Pregunta> preguntas = new List<Pregunta>();
+            String query = "SELECT ID_MENSAJE, DE_USUARIO, A_USUARIO, PREGUNTA, RESPUESTA, ELEMENTO, FECHA FROM MENSAJES WHERE A_USUARIO = @mailProfeParam AND RESPUESTA=''";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
             con.ConnectionString = Commons.getConnectionString();
             IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
@@ -26,23 +26,20 @@ namespace TablaPeriodica.DAL
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = query;
             IDataParameter param = cmd.CreateParameter();
-            param.DbType = DbType.Int32;
-            param.ParameterName = "@idMensajeParam";
-            param.Value = idMensaje;
+            param.DbType = DbType.String;
+            param.ParameterName = "@mailProfeParam";
+            param.Value = mailProfe;
             cmd.Parameters.Add(param);
             try
             {
                 con.Open();
                 IDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    pregunta.IdMensaje = reader.GetInt32(reader.GetOrdinal("ID_MENSAJE"));
-                    pregunta.DeUsuario = reader.GetString(reader.GetOrdinal("DE_USUARIO"));
-                    pregunta.AUsuario = reader.GetString(reader.GetOrdinal("A_USUARIO"));
-                    pregunta.Mensaje = reader.GetString(reader.GetOrdinal("MENSAJE"));
-                    pregunta.NroAtomico = reader.GetInt32(reader.GetOrdinal("ELEMENTO"));
-                    pregunta.Fecha = reader.GetDateTime(reader.GetOrdinal("FECHA"));
-                }
+                    while (reader.Read())
+                    {
+                        Pregunta pregunta = buildPregunta(reader);
+                        preguntas.Add(pregunta);
+                    }
+                
                 reader.Close();
                 con.Close();
                 con.Dispose();
@@ -51,12 +48,61 @@ namespace TablaPeriodica.DAL
             {
                 throw;
             }
+            return preguntas;
+        }
+
+        public List<Pregunta> getPreguntasAlumno(String mailAlumno)
+        {
+            List<Pregunta> preguntas = new List<Pregunta>();
+            String query = "SELECT ID_MENSAJE, DE_USUARIO, A_USUARIO, PREGUNTA, RESPUESTA, ELEMENTO, FECHA FROM MENSAJES WHERE DE_USUARIO = @mailAlumnoParam";
+            IDbConnection con = Commons.getProviderFactory().CreateConnection();
+            con.ConnectionString = Commons.getConnectionString();
+            IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            IDataParameter param = cmd.CreateParameter();
+            param.DbType = DbType.String;
+            param.ParameterName = "@mailAlumnoParam";
+            param.Value = mailAlumno;
+            cmd.Parameters.Add(param);
+            try
+            {
+                con.Open();
+                IDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Pregunta pregunta = buildPregunta(reader);
+                        preguntas.Add(pregunta);
+                    }
+                
+                reader.Close();
+                con.Close();
+                con.Dispose();
+            }
+            catch (DbException dbex)
+            {
+                throw;
+            }
+            return preguntas;
+        }
+
+        private Pregunta buildPregunta(IDataReader reader)
+        {
+            Pregunta pregunta = new Pregunta();
+            pregunta.IdMensaje = reader.GetInt32(reader.GetOrdinal("ID_MENSAJE"));
+            pregunta.DeUsuario = reader.GetString(reader.GetOrdinal("DE_USUARIO"));
+            pregunta.AUsuario = reader.GetString(reader.GetOrdinal("A_USUARIO"));
+            pregunta.PreguntaAlumno = reader.GetString(reader.GetOrdinal("PREGUNTA"));
+            pregunta.Respuesta = reader.GetString(reader.GetOrdinal("RESPUESTA"));
+            pregunta.NroAtomico = reader.GetInt32(reader.GetOrdinal("ELEMENTO"));
+            pregunta.Fecha = reader.GetDateTime(reader.GetOrdinal("FECHA"));
             return pregunta;
         }
 
         public void addPregunta(Pregunta pregunta)
         {
-            String query = "INSERT INTO MENSAJES (DE_USUARIO, A_USUARIO, MENSAJE, ELEMENTO, FECHA) VALUES (@deUsuario, @aUsuario, @mensaje, @elemento, @fecha)";
+            String query = "INSERT INTO MENSAJES (DE_USUARIO, A_USUARIO, PREGUNTA, RESPUESTA, ELEMENTO, FECHA) VALUES (@deUsuario, @aUsuario, @mensaje,'', @elemento, @fecha)";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
             con.ConnectionString = Commons.getConnectionString();
             IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
@@ -76,7 +122,7 @@ namespace TablaPeriodica.DAL
             param = cmd.CreateParameter();
             param.DbType = DbType.String;
             param.ParameterName = "@mensaje";
-            param.Value = pregunta.Mensaje;
+            param.Value = pregunta.PreguntaAlumno;
             cmd.Parameters.Add(param);
             param = cmd.CreateParameter();
             param.DbType = DbType.String;
@@ -124,7 +170,8 @@ namespace TablaPeriodica.DAL
                         preg.IdMensaje = Int32.Parse(item["ID_MENSAJE"].ToString());
                         preg.DeUsuario = item["DE_USUARIO"].ToString();
                         preg.AUsuario = item["A_USUARIO"].ToString();
-                        preg.Mensaje = item["MENSAJE"].ToString();
+                        preg.PreguntaAlumno = item["PREGUNTA"].ToString();
+                        preg.Respuesta = item["RESPUESTA"].ToString();
                         preg.Fecha = DateTime.Parse(item["ELEMENTO"].ToString());
                         preg.NroAtomico = Int32.Parse(item["FECHA"].ToString());
                         pregList.Add(preg);
@@ -136,6 +183,28 @@ namespace TablaPeriodica.DAL
                 throw;
             }
             return pregList;
+        }
+
+        public void responder(int id, String respuesta) {
+            String query = "UPDATE MENSAJES SET RESPUESTA = @respuestaParam where ID_MENSAJE = @idParam";
+            IDbConnection con = Commons.getProviderFactory().CreateConnection();
+            con.ConnectionString = Commons.getConnectionString();
+            IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            List<DbParameter> paramList = new List<DbParameter>();
+            DbParameter param = Commons.getProviderFactory().CreateParameter();
+            param.DbType = DbType.String;
+            param.ParameterName = "@respuestaParam";
+            param.Value = respuesta;
+            paramList.Add(param);
+            param = Commons.getProviderFactory().CreateParameter();
+            param.DbType = DbType.Int32;
+            param.ParameterName = "@idParam";
+            param.Value = id;
+            paramList.Add(param);
+            this.executeNonQuery(query, paramList, CommandType.Text);
         }
 
        

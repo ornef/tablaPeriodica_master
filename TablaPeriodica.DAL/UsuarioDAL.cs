@@ -101,15 +101,19 @@ namespace TablaPeriodica.DAL
             cmd.Connection = con;
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = query;
+
             try
             {
                 con.Open();
                 IDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    Usuario usuario = buildUsuario(reader);
-                    profesores.Add(usuario);
-                }
+          
+                
+                    while (reader.Read())
+                    {
+                        Usuario usuario = buildUsuario(reader);
+                        profesores.Add(usuario);
+                    }
+                
                 reader.Close();
                 con.Close();
                 con.Dispose();

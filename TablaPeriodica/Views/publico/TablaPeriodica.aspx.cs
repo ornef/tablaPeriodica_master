@@ -18,10 +18,6 @@ namespace TablaPeriodica.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //si se autentica mostramos mensaje y nombre de usuario
-            if (HttpContext.Current.User.Identity.IsAuthenticated) {
-                Response.Write("Bienvenido : " + User.Identity.Name);
-            }
             List<MenuItemCustom> menu = (List<MenuItemCustom>)Session["menu"];
         
                 if (menu == null) {

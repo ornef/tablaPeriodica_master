@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TablaPeriodica.Views {
+namespace TablaPeriodica.Views.administracion {
     
     
-    public partial class ElementoDetalle {
+    public partial class HistorialProfesor {
         
         /// <summary>
         /// Menu1 control.
