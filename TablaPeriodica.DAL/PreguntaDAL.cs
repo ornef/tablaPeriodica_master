@@ -102,7 +102,7 @@ namespace TablaPeriodica.DAL
 
         public void addPregunta(Pregunta pregunta)
         {
-            String query = "INSERT INTO MENSAJES (DE_USUARIO, A_USUARIO, PREGUNTA, RESPUESTA, ELEMENTO, FECHA) VALUES (@deUsuario, @aUsuario, @mensaje,'', @elemento, @fecha)";
+            String query = "INSERT INTO MENSAJES (DE_USUARIO, A_USUARIO, PREGUNTA, RESPUESTA, ELEMENTO, FECHA) VALUES (@deUsuario, @aUsuario, @mensaje,'', @elemento, getDate())";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
             con.ConnectionString = Commons.getConnectionString();
             IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
@@ -129,11 +129,8 @@ namespace TablaPeriodica.DAL
             param.ParameterName = "@elemento";
             param.Value = pregunta.NroAtomico;
             cmd.Parameters.Add(param);
-            param = cmd.CreateParameter();
-            param.DbType = DbType.Time;
-            param.ParameterName = "@fecha";
-            param.Value = DateTime.Now.ToString("dd/MM/yyyy");
-            cmd.Parameters.Add(param);
+         
+          
             try
             {
                 con.Open();
