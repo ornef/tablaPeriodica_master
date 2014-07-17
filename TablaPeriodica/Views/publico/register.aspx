@@ -11,8 +11,16 @@
     <link rel="stylesheet" type="text/css" href="../../css/tablaPeriodica.css" media="screen" />
 </head>
 <body>
+    <form id="form" runat="server" class="form-horizontal">
     <header>
-        <div id="menu"><a class="menu" id="volver" title="volver" href="TablaPeriodica.aspx">Volver a la Tabla</a></div>
+          
+        <div>
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="Menu" BackColor="Transparent">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Views/publico/TablaPeriodica.aspx" Text="Volver a la Tabla"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+        </div>
         <div id="titulo">2 Registrarme 3</div>
         <div id="clear"></div>
     </header>
@@ -26,7 +34,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#login" data-toggle="tab">Registrarme</a></li>
                     </ul>
-                    <form id="form" runat="server" class="form-horizontal">
+                  
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane active in" id="login">
                                 <fieldset>

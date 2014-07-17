@@ -33,7 +33,6 @@
     clear: both;
 }
 .elemento {
-	border:1px ridge; 
 	margin:0px; 
 	width: 10%; 
 	height: 5%; 
@@ -360,6 +359,7 @@ background: rgba(44,119,138,1);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c778a', endColorstr='#0f4075', GradientType=1 );
     border: 2px solid black;
     padding-bottom: 1.5%;
+    height: 65px;
 
 }
 
@@ -370,6 +370,15 @@ body{
   -o-background-size: cover;
   background-size: cover;
 }
+
+   .tabla-referencias {
+        margin: 0px !important;
+        border-color: #FFFFFF !important;
+        padding: 0px;
+        padding-bottom: 16px;
+        padding-top: 6px;
+        margin-right: 0px !important;
+    }
 
 h2 {
 	text-align: center;
@@ -414,20 +423,60 @@ ul {
 /* unvisited link */
 .showElement:link {
     color: black;
+    text-decoration:none;
 }
 
 /* visited link */
 .showElement:visited {
     color: black;
     text-decoration:none;
+    text-decoration-line:none;
 }
 
 /* mouse over link */
 .showElement:hover {
     color: black;
+    text-decoration:none;
 }
 
-/* selected link */
-.menu a:active {
-    color: #0000FF;
+.Menu
+{  
+
+}
+
+.Menu ul
+{  
+    background:#7795BD;
+}
+
+.Menu ul li
+{
+    background:#7795BD url(../Images/menu_bg.gif) repeat-x;
+    text-align:center;
+    /* set width if needed.*/
+    width:200px;
+}
+
+.Menu ul li a
+{
+    color: black;
+    padding: 4px 2px 4px;
+    padding-left:2px !important;
+    border:1px solid #648ABD;
+    border-bottom: 0;
+}
+
+.Menu ul li a:hover
+{
+    background-image: none;
+}
+
+.Menu ul li a:hover
+{
+    color: White;
+}
+
+.Menu ul li a
+{
+    color: Black;
 }

@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cabecera_va_aqui" runat="server">
     <header>
-        <div id="menu">
-            <asp:Menu ID="Menu1" runat="server" Orientation="Vertical" CssClass="menu" BackColor="Transparent">
+        <div>
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="Menu" BackColor="Transparent">
             </asp:Menu>
         </div>
         <div id="titulo">2 TABLA PERIODICA DE LOS ELEMENTOS 3</div>
