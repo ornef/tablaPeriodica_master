@@ -49,13 +49,13 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.Table TableElement;
         
         /// <summary>
-        /// ElementoTabla control.
+        /// TableRow19 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow ElementoTabla;
+        protected global::System.Web.UI.WebControls.TableRow TableRow19;
         
         /// <summary>
         /// TableCell1 control.

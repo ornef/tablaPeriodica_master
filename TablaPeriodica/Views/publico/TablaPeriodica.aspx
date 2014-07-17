@@ -1179,10 +1179,14 @@
                 'width': '50%',
                 'height': '75%',
                 'autoScale': false,
-                'transitionIn': 'none',
-                'transitionOut': 'none',
-                'type': 'iframe'
+                'transitionIn': 'elastic',
+                'transitionOut': 'fade',
+                'type': 'iframe',
+                beforeShow: function () {
+                    $(".fancybox-skin").css("background", "url(../../Images/background-image.jpg) no-repeat center center fixed");
+                }
             });
+
         })
     </script>
 

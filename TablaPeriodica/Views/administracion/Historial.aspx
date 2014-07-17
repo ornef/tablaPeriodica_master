@@ -4,30 +4,33 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cabecera_va_aqui" runat="server">
     <header>
-         <div id="menu">
-		 <asp:Menu ID="Menu1" runat="server" Orientation="Vertical">
-         </asp:Menu>
-		 <a class="menu" id="volver" title="volver" href="../publico/TablaPeriodica.aspx">Volver a la Tabla</a></div>
-        <div id="titulo">2 Listado de Preguntas 3</div>
+        <div>
+            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="Menu" BackColor="Transparent">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Views/publico/TablaPeriodica.aspx" Text="Volver a la Tabla"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+        </div>
+		<div id="titulo">2 Listado de Preguntas 3</div>
         <div id="clear"></div>
     </header>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cuerpo_va_aqui" runat="server">
     <div class="container-fluid">
 
-    <asp:Button ID="btnActualizar" runat="server" CssClass="button" Text="Actualizar" EnableViewState="False" OnClick="btnActualizar_Click" />
+    <asp:Button ID="btnActualizar" runat="server" CssClass="btn btn-primary" Text="Actualizar" EnableViewState="False" OnClick="btnActualizar_Click" />
         <asp:Label ID="lblMsgHistorial" runat="server"></asp:Label>
     <br />
-    <asp:GridView ID="GridView1" runat="server" Width="60%" AutoGenerateColumns="false" emptydatatext="No hay datos para mostrar" BackColor="WhiteSmoke">
-      <emptydatarowstyle backcolor="LightYellow" forecolor="Black"/>
+    <asp:GridView ID="GridView1" CssClass="TableElement" runat="server" Width="90%" AutoGenerateColumns="false" emptydatatext="No hay datos para mostrar" BackColor="WhiteSmoke" GridLines="Horizontal">
+      <emptydatarowstyle backcolor="LightYellow"/>
       <Columns>
-        <asp:CommandField ShowSelectButton="True" />
+        <asp:CommandField ShowSelectButton="true"/>
         <asp:BoundField DataField="Fecha" HeaderText="Fecha" ReadOnly="true" ItemStyle-Width="15%" />
         <asp:BoundField DataField="DeUsuario" HeaderText="Emisor" ReadOnly="true" ItemStyle-Width="10%" /> 
         <asp:BoundField DataField="AUsuario" HeaderText="Receptor" ReadOnly="true" ItemStyle-Width="10%" /> 
-        <asp:BoundField DataField="PreguntaAlumno" HeaderText="Pregunta" ReadOnly="true" ItemStyle-Width="40%" />
-        <asp:BoundField DataField="Respuesta" HeaderText="Respuesta" ReadOnly="true" ItemStyle-Width="40%" />  
-        <asp:BoundField DataField="NroAtomico" HeaderText="Número Atómico" ReadOnly="true" ItemStyle-Width="20%" /> 
+        <asp:BoundField DataField="PreguntaAlumno" HeaderText="Pregunta" ReadOnly="true" ItemStyle-Width="30%" />
+        <asp:BoundField DataField="Respuesta" HeaderText="Respuesta" ReadOnly="true" ItemStyle-Width="30%" />  
+        <asp:BoundField DataField="NroAtomico" HeaderText="Número Atómico" ReadOnly="true" ItemStyle-Width="5%" /> 
       </Columns>
       <SelectedRowStyle BackColor="#FFFFC0" />
     </asp:GridView>
