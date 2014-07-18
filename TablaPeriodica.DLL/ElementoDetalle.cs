@@ -9,7 +9,8 @@ namespace TablaPeriodica.DLL
     public class ElementoDetalle
     {
         private int nroAtomico;
-        private String nombre;
+        private String detalle;
+        private String url;
 
         public int NroAtomico
         {
@@ -17,10 +18,16 @@ namespace TablaPeriodica.DLL
             set { nroAtomico = value; }
         }
 
-        public String Nombre
+        public String Detalle
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return detalle; }
+            set { detalle = value; }
+        }
+
+        public String Url
+        {
+            get { return url; }
+            set { url = value; }
         }
     }
 }

@@ -53,7 +53,11 @@
                     <asp:TableRow ID="TableRow7" runat="server">
                         <asp:TableCell ID="TableCell13" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right">Detalles:</asp:TableCell>
                         <asp:TableCell ID="TableCell14" runat="server" Width="300px" HorizontalAlign="Left">
-                            <asp:TextBox ID="txtDetalles" runat="server" Rows="5" Width="300px" TextMode="multiline" Enabled="false" ReadOnly="true"></asp:TextBox></asp:TableCell>
+                            <asp:TextBox ID="txtDetalles" runat="server" Rows="7" Width="400px" TextMode="multiline" Enabled="false" ReadOnly="true"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow ID="TableRow12" runat="server">
+                        <asp:TableCell ID="TableCell25" runat="server" Font-Bold="true" Width="200px" HorizontalAlign="Right">M&aacute;s Info:</asp:TableCell>
+                        <asp:TableCell ID="TableCell26" runat="server" Width="300px" HorizontalAlign="Left"><asp:HyperLink ID="linkURL" runat="server" Text="Ver m&aacute;s detalles" ForeColor="DarkViolet" Font-Bold="true" Font-Underline="true"></asp:HyperLink></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow8" runat="server">
                         <asp:TableCell ID="TableCell15" runat="server">

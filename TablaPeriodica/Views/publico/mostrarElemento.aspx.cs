@@ -128,7 +128,7 @@ namespace TablaPeriodica.Views.publico
         {
             ElementoTabla elemDetail = elemBiz.getElementDetails(Convert.ToInt32(nroAtomico));
                     String tipo = tipoDAL.getTipoById(elemDetail.Tipo);
-             String detalle = detalleDAL.getDetalleByNroAtomico(elemDetail.NroAtomico);
+             DLL.ElementoDetalle detalle = detalleDAL.getDetalleByNroAtomico(elemDetail.NroAtomico);
              lblSimbolo.Text = elemDetail.Simbolo;
              lblNroAtomico.Text = elemDetail.NroAtomico.ToString();
              lblNombre.Text = elemDetail.Nombre;
@@ -136,7 +136,8 @@ namespace TablaPeriodica.Views.publico
              lblTipo.Text = tipo;
              lblGrupo.Text = elemDetail.Grupo.ToString();
              lblPeriodo.Text = elemDetail.Periodo.ToString();
-             txtDetalles.Text = detalle;
+             txtDetalles.Text = detalle.Detalle;
+             linkURL.NavigateUrl = detalle.Url;
         }
 
         protected void btncerrar_Click1(object sender, EventArgs e)

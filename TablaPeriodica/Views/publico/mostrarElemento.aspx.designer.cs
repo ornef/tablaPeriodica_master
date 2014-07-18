@@ -337,6 +337,42 @@ namespace TablaPeriodica.Views.publico {
         protected global::System.Web.UI.WebControls.TextBox txtDetalles;
         
         /// <summary>
+        /// TableRow12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRow12;
+        
+        /// <summary>
+        /// TableCell25 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TableCell25;
+        
+        /// <summary>
+        /// TableCell26 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TableCell26;
+        
+        /// <summary>
+        /// linkURL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linkURL;
+        
+        /// <summary>
         /// TableRow8 control.
         /// </summary>
         /// <remarks>

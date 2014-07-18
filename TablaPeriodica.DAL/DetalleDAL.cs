@@ -7,16 +7,17 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.Configuration;
 using System.Data;
+using TablaPeriodica.DLL;
 
 
 namespace TablaPeriodica.DAL
 {
     public class DetalleDAL : Commons, IDALDetalle
     {
-        public String getDetalleByNroAtomico(int nroAtomico)
+        public ElementoDetalle getDetalleByNroAtomico(int nroAtomico)
         {
-            String detalle = null;
-            String query = "SELECT DETALLE FROM DETALLE WHERE NRO_ATOMICO = @nroAtomicoParam";
+            ElementoDetalle detalle = null;
+            String query = "SELECT DETALLE, URL FROM DETALLE WHERE NRO_ATOMICO = @nroAtomicoParam";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
             con.ConnectionString = Commons.getConnectionString();
             IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
@@ -34,7 +35,10 @@ namespace TablaPeriodica.DAL
                 IDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    detalle = reader.GetString(reader.GetOrdinal("DETALLE"));
+                    detalle = new ElementoDetalle();
+                    //detalle.NroAtomico = reader.GetInt32(reader.GetOrdinal("NRO_ATOMICO"));
+                    detalle.Detalle = reader.GetString(reader.GetOrdinal("DETALLE"));
+                    detalle.Url = reader.GetString(reader.GetOrdinal("URL"));
                 }
                 reader.Close();
                 con.Close();
