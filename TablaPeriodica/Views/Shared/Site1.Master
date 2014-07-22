@@ -16,14 +16,17 @@
     <link rel="stylesheet" type="text/css" href="../../scripts/jquery.fancybox.css"/>
 
     <form id="form1" runat="server">
-        <div style="width:100%;height: 5%;float:left"> 
         <asp:ContentPlaceHolder ID="cabecera_va_aqui"  runat="server"> 
-                <div id="menu">
+          <div id="menu">
              <asp:Menu ID="Menu1" runat="server" Orientation="Vertical" CssClass="menu">
             </asp:Menu>
-        </div>
+          </div>
+            <div id="titulo">
+
+            </div>
+            <div id="clear"></div>
         </asp:ContentPlaceHolder> 
-    </div>
+    
 
     <div style="width: 100%;height: 95%; float:left"> 
        <asp:ContentPlaceHolder ID="cuerpo_va_aqui" runat="server">

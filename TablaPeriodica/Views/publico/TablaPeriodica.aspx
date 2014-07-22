@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cabecera_va_aqui" runat="server">
     <header>
-        <div>
+        <div id="menu">
             <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="Menu" BackColor="Transparent">
             </asp:Menu>
             <asp:Label ID="lblNombreUsuario" runat="server"></asp:Label>
