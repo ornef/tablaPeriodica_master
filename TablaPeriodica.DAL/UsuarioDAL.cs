@@ -7,13 +7,18 @@ using System.Data;
 using TablaPeriodica.DLL;
 using System.Data.Common;
 using System.Collections;
+using Services;
+using System.Threading;
+
 
 namespace TablaPeriodica.DAL
 {
     public class UsuarioDAL :Commons, IDALUsuario
 
-
     {
+        private static volatile UsuarioDAL instance;
+        private static object syncRoot = new Object();
+
         public DLL.Usuario getUsuario(string mail)
         {
             Usuario usuario = null;
@@ -62,7 +67,7 @@ namespace TablaPeriodica.DAL
             DbParameter param = Commons.getProviderFactory().CreateParameter();
             param.DbType = DbType.String;
             param.ParameterName = "@contraseniaParam";
-            param.Value = usuario.Contrasenia;
+            param.Value = SeguridadService.Encriptar(usuario.Contrasenia);
             paramList.Add(param);
             param = Commons.getProviderFactory().CreateParameter();
             param.DbType = DbType.String;
@@ -86,7 +91,7 @@ namespace TablaPeriodica.DAL
         public void insertUsuario(DLL.Usuario usuario)
         {
             String str = "insert into usuarios (nombre, apellido, tipo_usuario, mail, contrasenia) values ('{0}', '{1}', '{2}', '{3}', '{4}')";
-            str = String.Format(str, usuario.Nombre, usuario.Apellido, usuario.TipoUsuario, usuario.Mail, usuario.Contrasenia);
+            str = String.Format(str, usuario.Nombre, usuario.Apellido, usuario.TipoUsuario, usuario.Mail, SeguridadService.Encriptar(usuario.Contrasenia));
 
             this.executeNonQuery(str, CommandType.Text);
         }
@@ -132,8 +137,36 @@ namespace TablaPeriodica.DAL
             usuario.Nombre = reader.GetString(reader.GetOrdinal("NOMBRE"));
             usuario.Apellido = reader.GetString(reader.GetOrdinal("APELLIDO"));
             usuario.TipoUsuario = reader.GetString(reader.GetOrdinal("TIPO_USUARIO"));
-            usuario.Contrasenia = reader.GetString(reader.GetOrdinal("CONTRASENIA"));
+            usuario.Contrasenia = SeguridadService.DesEncriptar(reader.GetString(reader.GetOrdinal("CONTRASENIA")));
+            //usuario.Contrasenia = reader.GetString(reader.GetOrdinal("CONTRASENIA"));
             return usuario;
         }
+
+        public int getCantidadUsuarios()
+        {
+            String query = "SELECT COUNT(*) AS CANTIDAD FROM USUARIOS";
+            IDbConnection con = Commons.getProviderFactory().CreateConnection();
+            con.ConnectionString = Commons.getConnectionString();
+            IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            return (int) this.executeScalar(query, CommandType.Text);
+        }
+
+        public static UsuarioDAL getInstance() {
+            if (instance == null)
+            {
+                lock (syncRoot)
+                {
+                    if (instance == null)
+                        instance = new UsuarioDAL();
+                }
+            }
+
+        return instance;
+        }
+
+        private UsuarioDAL() { }
     }
 }

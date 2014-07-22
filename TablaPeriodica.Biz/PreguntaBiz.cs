@@ -11,8 +11,8 @@ namespace TablaPeriodica.Biz
 {
     public class PreguntaBiz
     {
-        private UsuarioDAL usuarioDAL = new UsuarioDAL();
-        private PreguntaDAL pregDAL = new PreguntaDAL();
+        private UsuarioDAL usuarioDAL = UsuarioDAL.getInstance();
+        private PreguntaDAL pregDAL = PreguntaDAL.getInstance();
         private static String PREG_EXMSG = "No se pudo enviar el mensaje, por favor contáctese con soporte";
 
               

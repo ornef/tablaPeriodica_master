@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons.cs" />
+    <Compile Include="ConfiguracionDAL.cs" />
     <Compile Include="DetalleDAL.cs" />
     <Compile Include="ElementoDAL.cs" />
     <Compile Include="IDALDetalle.cs" />
@@ -55,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{2e8ea209-c147-4956-a115-5cbc8a07e22c}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TablaPeriodica.DLL\TablaPeriodica.DLL.csproj">
       <Project>{e37b24e8-0789-4cd8-a9bc-acf75d3f898f}</Project>
       <Name>TablaPeriodica.DLL</Name>

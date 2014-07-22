@@ -14,6 +14,8 @@ namespace TablaPeriodica.DAL
     public class PreguntaDAL :Commons, IDALPregunta
     {
         public static String TABLA_MENSAJES = "MENSAJES";
+        private static volatile PreguntaDAL instance;
+        private static object syncRoot = new Object();
 
         public List<Pregunta> getPreguntasParaProfesor (String mailProfe)
         {
@@ -203,6 +205,22 @@ namespace TablaPeriodica.DAL
             paramList.Add(param);
             this.executeNonQuery(query, paramList, CommandType.Text);
         }
+
+        public static PreguntaDAL getInstance()
+        {
+            if (instance == null)
+            {
+                lock (syncRoot)
+                {
+                    if (instance == null)
+                        instance = new PreguntaDAL();
+                }
+            }
+
+            return instance;
+        }
+
+        private PreguntaDAL() { }
 
        
     }

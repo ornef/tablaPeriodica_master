@@ -12,7 +12,7 @@ namespace TablaPeriodica.Biz
 {
     public class UsuarioBiz
     {
-        private UsuarioDAL usuarioDAL = new UsuarioDAL();
+        private UsuarioDAL usuarioDAL = UsuarioDAL.getInstance();
         private static String LOGIN_EXMSG = "No se pudieron obtener los datos, por favor contáctese con soporte";
 
         public Usuario validarUsuario (String mail, String contrasenia) {
@@ -36,12 +36,29 @@ namespace TablaPeriodica.Biz
 
         public void altaUsuarioAlumno(Usuario usuario)
         {
-            usuario.TipoUsuario = "ALU";
+            usuario.TipoUsuario = Usuario.PERFIL_ALUMNO;
+            usuarioDAL.insertUsuario(usuario);
+        }
+
+        public void altaUsuarioProfesor(Usuario usuario)
+        {
+            usuario.TipoUsuario = Usuario.PERFIL_PROFESOR;
+            usuarioDAL.insertUsuario(usuario);
+        }
+
+        public void altaUsuarioAdministrador(Usuario usuario)
+        {
+            usuario.TipoUsuario = Usuario.PERFIL_ADMINISTRADOR;
             usuarioDAL.insertUsuario(usuario);
         }
 
         public List<Usuario> getProfesores() {
             return usuarioDAL.getProfesores();
+        }
+
+        public Boolean hayUsuariosRegistrados() {
+            int cantUsuarios = usuarioDAL.getCantidadUsuarios();
+            return (cantUsuarios != null && cantUsuarios > 0);
         }
     }
  }

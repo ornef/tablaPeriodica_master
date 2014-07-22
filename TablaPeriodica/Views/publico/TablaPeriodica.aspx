@@ -7,6 +7,7 @@
         <div>
             <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="Menu" BackColor="Transparent">
             </asp:Menu>
+            <asp:Label ID="lblNombreUsuario" runat="server"></asp:Label>
         </div>
         <div id="titulo">2 TABLA PERIODICA DE LOS ELEMENTOS 3</div>
         <div id="clear"></div>

@@ -8,6 +8,10 @@ namespace TablaPeriodica.DLL
 {
     public class Usuario
     {
+        public static String PERFIL_ALUMNO = "ALU";
+        public static String PERFIL_PROFESOR = "PRO";
+        public static String PERFIL_ADMINISTRADOR = "ADM";
+
         private String nombre;
         private String apellido;
         private String tipoUsuario;
@@ -44,5 +48,9 @@ namespace TablaPeriodica.DLL
             set { contrasenia = value; }
         }
 
+        public string getNombreCompleto()
+        {
+            return Nombre + " " + Apellido;
+        }
     }
 }

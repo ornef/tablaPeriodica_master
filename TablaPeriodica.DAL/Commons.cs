@@ -62,6 +62,36 @@ namespace TablaPeriodica.DAL
             }
         }
 
+        public Object executeScalar(String query, CommandType cmdType)
+        {
+            IDbConnection con = Commons.getProviderFactory().CreateConnection();
+            con.ConnectionString = Commons.getConnectionString();
+            IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
+            cmd.CommandType = cmdType;
+            cmd.CommandText = query;
+
+            try
+            {
+                con.Open();
+                cmd.Transaction = con.BeginTransaction();
+                cmd.Connection = con;
+                return cmd.ExecuteScalar();
+                cmd.Transaction.Commit();
+                cmd.Dispose();
+                con.Close();
+                con.Dispose();
+            }
+            catch (DbException dbex)
+            {
+                throw;
+            }
+            catch (SystemException sysex)
+            {
+                cmd.Transaction.Rollback();
+                throw;
+            }
+        }
+
         public void executeNonQuery(String query, List<DbParameter> param, CommandType cmdType)
         {
             IDbConnection con = Commons.getProviderFactory().CreateConnection();

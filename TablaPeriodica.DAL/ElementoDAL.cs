@@ -13,6 +13,9 @@ namespace TablaPeriodica.DAL
 {
     public class ElementoDAL: Commons, IDALElemento
     {
+        private static volatile ElementoDAL instance;
+        private static object syncRoot = new Object();
+
         public ElementoTabla getElementDetails(int nroAtomico)
         {
             ElementoTabla elemDetail = new ElementoTabla();
@@ -75,5 +78,21 @@ namespace TablaPeriodica.DAL
             this.executeNonQuery(query, paramList, CommandType.Text);
 
         }
+
+        public static ElementoDAL getInstance()
+        {
+            if (instance == null)
+            {
+                lock (syncRoot)
+                {
+                    if (instance == null)
+                        instance = new ElementoDAL();
+                }
+            }
+
+            return instance;
+        }
+
+        private ElementoDAL() { }
     }
 }

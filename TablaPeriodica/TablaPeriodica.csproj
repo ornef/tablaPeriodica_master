@@ -268,9 +268,11 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Views\administracion\Historial.aspx" />
     <Content Include="Views\administracion\HistorialProfesor.aspx" />
+    <Content Include="Views\administracion\RegisterProfesor.aspx" />
     <Content Include="Views\publico\login.aspx" />
     <Content Include="Views\publico\logOut.aspx" />
     <Content Include="Views\publico\mostrarElemento.aspx" />
+    <Content Include="Views\publico\olvidoContrasenia.aspx" />
     <Content Include="Views\publico\register.aspx" />
     <Content Include="Views\publico\TablaPeriodica.aspx" />
     <Content Include="Web.config" />
@@ -302,6 +304,13 @@
     <Compile Include="Views\administracion\HistorialProfesor.aspx.designer.cs">
       <DependentUpon>HistorialProfesor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\administracion\RegisterProfesor.aspx.cs">
+      <DependentUpon>RegisterProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\administracion\RegisterProfesor.aspx.designer.cs">
+      <DependentUpon>RegisterProfesor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\publico\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +331,13 @@
     </Compile>
     <Compile Include="Views\publico\mostrarElemento.aspx.designer.cs">
       <DependentUpon>mostrarElemento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\publico\olvidoContrasenia.aspx.cs">
+      <DependentUpon>olvidoContrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\publico\olvidoContrasenia.aspx.designer.cs">
+      <DependentUpon>olvidoContrasenia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\publico\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
@@ -349,6 +365,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{2e8ea209-c147-4956-a115-5cbc8a07e22c}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TablaPeriodica.Biz\TablaPeriodica.Biz.csproj">
       <Project>{af13ce1d-22cd-4b4e-8905-3cddc23aac7b}</Project>
       <Name>TablaPeriodica.Biz</Name>

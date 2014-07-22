@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablaPeriodica.DAL", "Tabla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablaPeriodica.Biz", "TablaPeriodica.Biz\TablaPeriodica.Biz.csproj", "{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{2E8EA209-C147-4956-A115-5CBC8A07E22C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF13CE1D-22CD-4B4E-8905-3CDDC23AAC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E8EA209-C147-4956-A115-5CBC8A07E22C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E8EA209-C147-4956-A115-5CBC8A07E22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E8EA209-C147-4956-A115-5CBC8A07E22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E8EA209-C147-4956-A115-5CBC8A07E22C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

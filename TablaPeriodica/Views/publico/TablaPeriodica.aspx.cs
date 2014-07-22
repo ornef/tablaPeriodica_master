@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Services;
 using TablaPeriodica.Biz;
 using TablaPeriodica.DLL;
 
@@ -18,6 +19,7 @@ namespace TablaPeriodica.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
+      
             List<MenuItemCustom> menu = (List<MenuItemCustom>)Session["menu"];
         
                 if (menu == null) {
@@ -34,7 +36,13 @@ namespace TablaPeriodica.Views
                         itemLogin.NavigateUrl = item.Url;
                         Menu1.Items.Add(itemLogin);
                     }
-                }         
+                }
+
+            Usuario usuario = (Usuario)Session["usuario"];
+            if(usuario != null){
+                lblNombreUsuario.Text = usuario.TipoUsuario + " - " + usuario.getNombreCompleto();
+            }
+            
         }
 
         protected void btncerrar_Click1(object sender, EventArgs e)

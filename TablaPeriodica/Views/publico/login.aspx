@@ -62,7 +62,8 @@
 									<asp:button ID="btnLogin" runat="server" CssClass="btn btn-success" Text="Login" OnClick="Unnamed1_Click"/>
 								</div>
 							</div>
-						        <asp:HyperLink ID="nuevoUsuario" runat="server" href="register.aspx">Nuevo Usuario?</asp:HyperLink>
+						        <asp:HyperLink ID="nuevoUsuario" runat="server" href="register.aspx">Nuevo Usuario?</asp:HyperLink> &nbsp; 
+						        <asp:HyperLink ID="olvidoContrasenia" runat="server" href="olvidoContrasenia.aspx">Olvidaste tu contraseña?</asp:HyperLink>
 						</fieldset>
 				</div>
             </form>

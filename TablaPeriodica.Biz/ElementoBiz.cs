@@ -10,7 +10,7 @@ namespace TablaPeriodica.Biz
 {
     public class ElementoBiz
     {
-        private ElementoDAL elemDAL = new ElementoDAL();
+        private ElementoDAL elemDAL = ElementoDAL.getInstance();
 
         public ElementoTabla getElementDetails(int nroAtomico)
         {

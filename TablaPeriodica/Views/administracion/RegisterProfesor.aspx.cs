@@ -7,17 +7,20 @@ using System.Web.UI.WebControls;
 using TablaPeriodica.Biz;
 using TablaPeriodica.DLL;
 
-namespace TablaPeriodica.Views.publico
+namespace TablaPeriodica.Views.administracion
 {
-    public partial class register : System.Web.UI.Page
+    public partial class RegisterProfesor : System.Web.UI.Page
     {
-        UsuarioBiz loginBiz = new UsuarioBiz();
+        UsuarioBiz usuarioBiz = new UsuarioBiz();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
         protected void crearUsuario_Click(object sender, EventArgs e)
         {
+
             if (entradasValidas(txtApellido.Text, txtNombre.Text, txtEmail.Text, txtContrasenia.Text))
             {
 
@@ -27,7 +30,7 @@ namespace TablaPeriodica.Views.publico
                 usuario.Mail = txtEmail.Text;
                 usuario.Contrasenia = txtContrasenia.Text;
 
-                if (loginBiz.existeUsuario(usuario.Mail))
+                if (usuarioBiz.existeUsuario(usuario.Mail))
                 {
                     lblMsgCrearCuenta.Text = "Ya se encuentra registrado un usuario con ese Mail";
                 }
@@ -35,14 +38,7 @@ namespace TablaPeriodica.Views.publico
                 {
                     try
                     {
-                        if (!loginBiz.hayUsuariosRegistrados())
-                        {
-                            loginBiz.altaUsuarioAdministrador(usuario);
-                        }
-                        else {
-                            loginBiz.altaUsuarioAlumno(usuario);
-                        }
-                        
+                        usuarioBiz.altaUsuarioProfesor(usuario);
                         Response.Redirect("~/Views/publico/TablaPeriodica.aspx");
                     }
                     catch (BusinessException ex)
