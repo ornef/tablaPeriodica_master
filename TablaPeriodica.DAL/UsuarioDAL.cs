@@ -56,7 +56,7 @@ namespace TablaPeriodica.DAL
 
         public void updateContraseniaUsuario(DLL.Usuario usuario)
         {
-            String query = "UPDATE  USUARIO SET CONTRASENIA = @contraseniaParam where MAIL = @mailParam";
+            String query = "UPDATE USUARIOS SET CONTRASENIA = @contraseniaParam where MAIL = @mailParam";
             IDbConnection con = Commons.getProviderFactory().CreateConnection();
             con.ConnectionString = Commons.getConnectionString();
             IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
@@ -85,7 +85,7 @@ namespace TablaPeriodica.DAL
             param.ParameterName = "@idUsuario";
             param.Value = usuario.Mail;
             paramList.Add(param);
-            this.executeNonQuery("delete from usuario where mail =@idUsuario", paramList, CommandType.Text);
+            this.executeNonQuery("delete from usuarios where mail =@idUsuario", paramList, CommandType.Text);
         }
 
         public void insertUsuario(DLL.Usuario usuario)
@@ -168,5 +168,41 @@ namespace TablaPeriodica.DAL
         }
 
         private UsuarioDAL() { }
+
+        public Usuario getUsuarioAdmin()
+        {
+            Usuario usuario = null;
+            String query = "SELECT NOMBRE, APELLIDO, TIPO_USUARIO, MAIL, CONTRASENIA FROM USUARIOS where TIPO_USUARIO =@adminParam ";
+            IDbConnection con = Commons.getProviderFactory().CreateConnection();
+            con.ConnectionString = Commons.getConnectionString();
+            IDbCommand cmd = Commons.getProviderFactory().CreateCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            IDataParameter param = cmd.CreateParameter();
+            param.DbType = DbType.String;
+            param.ParameterName = "@adminParam";
+            param.Value = Usuario.PERFIL_ADMINISTRADOR;
+            cmd.Parameters.Add(param);
+            try
+            {
+                con.Open();
+                IDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    usuario = buildUsuario(reader);
+                }
+                reader.Close();
+                con.Close();
+                con.Dispose();
+            }
+            catch (DbException dbex)
+            {
+                throw;
+            }
+            return usuario;
+        }
     }
+
+     
 }

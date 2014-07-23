@@ -266,9 +266,12 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Views\administracion\AgregarConfiguracion.aspx" />
+    <Content Include="Views\administracion\GestionConfiguracion.aspx" />
     <Content Include="Views\administracion\Historial.aspx" />
     <Content Include="Views\administracion\HistorialProfesor.aspx" />
     <Content Include="Views\administracion\RegisterProfesor.aspx" />
+    <Content Include="Views\publico\ActualizarContrasenia.aspx" />
     <Content Include="Views\publico\login.aspx" />
     <Content Include="Views\publico\logOut.aspx" />
     <Content Include="Views\publico\mostrarElemento.aspx" />
@@ -290,6 +293,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\administracion\AgregarConfiguracion.aspx.cs">
+      <DependentUpon>AgregarConfiguracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\administracion\AgregarConfiguracion.aspx.designer.cs">
+      <DependentUpon>AgregarConfiguracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\administracion\GestionConfiguracion.aspx.cs">
+      <DependentUpon>GestionConfiguracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\administracion\GestionConfiguracion.aspx.designer.cs">
+      <DependentUpon>GestionConfiguracion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\administracion\Historial.aspx.cs">
       <DependentUpon>Historial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,6 +327,13 @@
     </Compile>
     <Compile Include="Views\administracion\RegisterProfesor.aspx.designer.cs">
       <DependentUpon>RegisterProfesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\publico\ActualizarContrasenia.aspx.cs">
+      <DependentUpon>ActualizarContrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\publico\ActualizarContrasenia.aspx.designer.cs">
+      <DependentUpon>ActualizarContrasenia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\publico\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

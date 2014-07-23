@@ -22,10 +22,22 @@ namespace TablaPeriodica.Views.publico
         {
 
             UsuarioDAL usuarioDAL = UsuarioDAL.getInstance();
-            Usuario usuario = usuarioDAL.getUsuario(txtEmail.Text);
-            if (usuario != null)
+            Usuario receptor = usuarioDAL.getUsuario(txtEmail.Text);
+            if (receptor != null)
             {
-                EnvioMailService.SendMail(usuario);
+                Usuario emisor = usuarioDAL.getUsuarioAdmin();
+                String server = ConfiguracionDAL.getInstance().getValue("smtp.server");
+                String port = ConfiguracionDAL.getInstance().getValue("smtp.server.port");
+                if ("".Equals(server) || "".Equals(port)) {
+                    lblMsgOlvido.Text = "No se encuentra configurado el envio de mails. Contactar al administrador.";    
+                }
+                if (EnvioMailService.SendMail(emisor, receptor, server, port))
+                {
+                    lblMsgOlvido.Text = "Se ha enviado un mail con su contraseña.";
+                }
+                else {
+                    lblMsgOlvido.Text = "No se pudo enviar el mail, inténtelo más tarde.";
+                }
             }
             else {
                 lblMsgOlvido.Text = "No se encuentra registrado el mail ingresado.";

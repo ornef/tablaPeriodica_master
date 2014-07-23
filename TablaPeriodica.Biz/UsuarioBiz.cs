@@ -60,5 +60,10 @@ namespace TablaPeriodica.Biz
             int cantUsuarios = usuarioDAL.getCantidadUsuarios();
             return (cantUsuarios != null && cantUsuarios > 0);
         }
+
+        public void actualizarContrasenia(Usuario usuario, String contrasenia) {
+            usuario.Contrasenia = contrasenia;
+            usuarioDAL.updateContraseniaUsuario(usuario);
+        }
     }
  }

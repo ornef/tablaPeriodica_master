@@ -27,6 +27,7 @@ namespace TablaPeriodica.Views
                 if (usuario != null && usuario.TipoUsuario.Equals(Usuario.PERFIL_ALUMNO))
                 {
                         menu.Add(new MenuItemCustom("~/Views/administracion/Historial.aspx", "Historial Preguntas"));
+                        menu.Add(new MenuItemCustom("~/Views/publico/ActualizarContrasenia.aspx", "Cambiar Contraseña"));    
                         menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
                         Session.Add("usuario", usuario);
                         Session.Add("menu", menu);
@@ -36,6 +37,7 @@ namespace TablaPeriodica.Views
                 else if (usuario != null && usuario.TipoUsuario.Equals(Usuario.PERFIL_PROFESOR))
                 {
                         menu.Add(new MenuItemCustom("~/Views/administracion/HistorialProfesor.aspx", "Responder Preguntas"));
+                        menu.Add(new MenuItemCustom("~/Views/publico/ActualizarContrasenia.aspx", "Cambiar Contraseña"));     
                         menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
                         Session.Add("usuario", usuario);
                         Session.Add("menu", menu);
@@ -43,6 +45,8 @@ namespace TablaPeriodica.Views
                 }
                 else if (usuario != null && usuario.TipoUsuario.Equals(Usuario.PERFIL_ADMINISTRADOR)) {
                     menu.Add(new MenuItemCustom("~/Views/administracion/RegisterProfesor.aspx", "Registrar Profesor"));
+                    menu.Add(new MenuItemCustom("~/Views/administracion/GestionConfiguracion.aspx", "Configuraciones"));
+                    menu.Add(new MenuItemCustom("~/Views/publico/ActualizarContrasenia.aspx", "Cambiar Contraseña")); 
                     menu.Add(new MenuItemCustom("~/Views/publico/logOut.aspx", "Log Out"));
                     Session.Add("usuario", usuario);
                     Session.Add("menu", menu);

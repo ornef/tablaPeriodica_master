@@ -55,6 +55,7 @@ namespace TablaPeriodica.DAL
             }
             return elemDetail;
         }
+
         public void updateElemento(int nroAtomico, String detalles)
         {
             String query = "UPDATE DETALLE SET DETALLE = @detallesParam WHERE NRO_ATOMICO = @nroAtomicoParam";

@@ -22,6 +22,14 @@ namespace TablaPeriodica.DLL
             get { return valor; }
             set { valor = value; }
         }
+
+        public Configuracion(){}
+
+        public Configuracion(String id, String value){
+            this.id = id;
+            this.valor = value;
+
+        }
         
     }
 }

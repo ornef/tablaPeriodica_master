@@ -11,23 +11,22 @@ namespace Services
 {
     public class EnvioMailService
     {
-        public static Boolean SendMail(Usuario usuario)
+        public static Boolean SendMail(Usuario emisor, Usuario receptor, String server, String port)
         {
             try
             {
-
                 MailMessage msg = new MailMessage();
-                msg.To.Add(new MailAddress("orne.ferrari@hotmail.com", usuario.getNombreCompleto()));
-                msg.From = new MailAddress(ConfigurationSettings.AppSettings["mail"].ToString(), "Administración");
+                msg.To.Add(new MailAddress(receptor.Mail, receptor.getNombreCompleto()));
+                msg.From = new MailAddress(emisor.Mail, "Administración Tabla Periódica");
                 msg.Subject = "Tabla Periódica - Olvido de Contraseña";
-                msg.Body = "Tu contraseña era: " + SeguridadService.DesEncriptar(usuario.Contrasenia);
+                msg.Body = "Tu contraseña era: " + receptor.Contrasenia;
                 msg.IsBodyHtml = true;
 
                 SmtpClient client = new SmtpClient();
                 client.UseDefaultCredentials = false;
-                client.Credentials = new System.Net.NetworkCredential(ConfigurationSettings.AppSettings["mail"].ToString(), "870621345s");
-                client.Port = 587;
-                client.Host = "smtp.office365.com";
+                client.Credentials = new System.Net.NetworkCredential(emisor.Mail, emisor.Contrasenia);
+                client.Port = Int32.Parse(port);
+                client.Host = server;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.EnableSsl = true;
                 try
@@ -37,7 +36,7 @@ namespace Services
                 }
                 catch (Exception ex)
                 {
-
+                    throw;
                 }
 
                 return true;
